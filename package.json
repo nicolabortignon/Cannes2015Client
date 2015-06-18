@@ -1,0 +1,19 @@
+{
+  "name": "tremulajs",
+  "version": "0.0.0",
+  "description": "",
+  "main": "",
+  "devDependencies": {
+    "mocha": "^1.21.5",
+    "chai": "^1.9.2"
+  },
+  "scripts": {},
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "bunyan": "~0.22.3",
+    "express": "^3.8.1",
+    "http-proxy": "~1.1.4",
+    "underscore": "~1.6.0"
+  }
+}
