@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald);
 
 body{
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: .8em;
 	background-color: #ddd;
 	 overflow:hidden;
@@ -290,9 +290,27 @@ body .gridBox.isLastContentBlock{
 #closeButton{
 
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 10px;
+  bottom: 10px;
   z-index: 11; 
+   
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	z-index: 19;
+  	position: absolute;
+  	width: 200px;
+  
+  	-webkit-perspective: 800px;
+          perspective: 800px;
+  	overflow: visible;
+  	background-color: #333;
+  	  	color: #eee;
+  	padding-top: 5px;
+  	padding-bottom: 5px;
+  	font-size : 26px;
+  	text-align: center;
+
 }
 
 
@@ -306,6 +324,7 @@ body .gridBox.isLastContentBlock{
     left:-50%; right:-50%;
     margin:auto;
     z-index: 14; 
+
 }
 
 
@@ -351,7 +370,24 @@ body .gridBox.isLastContentBlock{
   ICONS - DEMO 5
 ============================================================================= */
 
-
+.shortURL{
+	top: 220px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	z-index: 19;
+  	position: absolute;
+  	width: 200px;
+  	text-align: center;
+  	-webkit-perspective: 800px;
+    perspective: 800px;
+  	overflow: visible;
+  	background-color: #333;
+  	color: #eee;
+  	padding-top: 5px;
+  	padding-bottom: 5px;
+  	font-size : 26px;
+}
 .qrCode {
 	top: 10px;
 	-webkit-border-radius: 10px;
