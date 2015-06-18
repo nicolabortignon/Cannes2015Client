@@ -356,8 +356,8 @@ body .gridBox.isLastContentBlock{
 border-radius: 10px;
 	z-index: 19;
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   -webkit-perspective: 800px;
           perspective: 800px;
   overflow: visible;
@@ -382,7 +382,7 @@ border-radius: 10px;
 
 .icon-cube::before {
   z-index: 23;
-  background-color: #595959;
+  background-color: #333;
 }
 
 .icon-cube::after {
@@ -431,7 +431,7 @@ border-radius: 10px;
 }
 
 .icon-cube.googleplus::after {
-  background-color: #d34836;
+  background-color: #cc1e1e;
 }
 
 /* github */
