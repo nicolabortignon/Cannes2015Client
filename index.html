@@ -91,6 +91,7 @@
 
 
 
+ 
 		</script>
 
 
@@ -109,7 +110,7 @@
  			<div id="closeButton" >
 				CLOSE
  			</div>
- 			<a href="#" class="icon icon-cube googleplus"></a>
+ 			<a href="#" id="likeButton" class="icon icon-cube googleplus"></a>
 
  			<div class="qrCode"> 
  				<img src="http://dailygenius.com/wp-content/uploads/2014/06/qrcode.jpg" />
@@ -237,6 +238,12 @@
 
 	} 
 
+
+				  $("#likeButton").click(function() { 
+				console.log("HIT") //use a class, since your ID gets mangled
+			    $(this).addClass("icon-cube-hover");      //add the class to the clicked element
+			  });
+				  
 
 
 
