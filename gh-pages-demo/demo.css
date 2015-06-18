@@ -5,6 +5,8 @@ body{
 	font-size: .8em;
 	background-color: #ddd;
 	 overflow:hidden;
+	 margin: 0px !important;
+	 padding: 0px !important;
 }
 
 *{
@@ -312,7 +314,78 @@ body .gridBox.isLastContentBlock{
   	text-align: center;
 
 }
+.profilePhotography{
+	position: absolute;
+	left: 50%;
+	top: 35%;
+	margin-left: -650px;
+}
+.profileHistory{
+	position: absolute;
+	left: 50%;
+	top: 35%;
+	margin-left: -200px;
+}
+.profileNature{
+	position: absolute;
+	left: 50%;
+	top: 35%;
+	margin-left: 250px;
+}
+.selectProfile{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 50;
+}
+.selectProfileBackgroundImage{
+	width: 100%;
+	height: 100%;
+}
+.profileMan{
+	position: absolute;
+	left: 50%;
+	top: 35%;
+	margin-left: -500px;
+}
+.profileWoman{
+	position: absolute;
+	left: 50%;
+	top: 35%;
+	margin-left: 100px;
+}
 
+ 
+.firstStep{
+	z-index: 11;
+	psoition: absolute;
+}
+.headerSecondStep{
+	background-color: #b0d136;
+	top: 16%;
+	height: 3%;
+	position: absolute;
+	padding: 2%;
+	padding-left: 3%;
+	font-size: 38px;
+	color: #fff;
+	line-height: 90%;
+	font-weight: 500;
+	width: 100%;
+	margin: 0px !important;
+}
+.headerFirstStep{
+	background-color: #00aa00;
+	height: 7%;
+	position: absolute;
+	padding: 3%;
+	font-size: 60px;
+	color: #fff;
+	font-weight: 500;
+
+	width: 100%;
+	margin: 0px !important;
+}
 
 .imageDetailContainerOverlayControllers {
 	min-height:100%;
@@ -387,6 +460,7 @@ body .gridBox.isLastContentBlock{
   	padding-top: 5px;
   	padding-bottom: 5px;
   	font-size : 26px;
+  	margin-left: 20px;
 }
 .qrCode {
 	top: 10px;
@@ -401,16 +475,19 @@ body .gridBox.isLastContentBlock{
           perspective: 800px;
   	overflow: visible;
   	background-color: #333;
+  	margin-left: 20px;
 }
 
 .qrCode img{
 	margin: 10px;
 	width: 180px;
 	height: 180px;
+
 }
 
 
 .icon-cube {
+	margin-left: 20px;
 	bottom: 10px;
 	-webkit-border-radius: 10px;
 -moz-border-radius: 10px;

@@ -34,7 +34,7 @@
 
 			$().ready(function(){
 					var stats = new Stats();
-					stats.setMode( 0 ); // 0: fps, 1: ms, 2: mb
+					 stats.setMode( 1 ); // 0: fps, 1: ms, 2: mb
 
 					// align top-left
 					stats.domElement.style.position = 'absolute';
@@ -99,10 +99,32 @@
 	</head>
  
 	<body class="doReflect"> 
- 
-		 
-		<div style="margin-top: 50px;" class="tab">CONFIG</div>
+ 	
+ 		<div class="selectProfile">
+ 				 
+			 
+				<div class="headerFirstStep">
+					SELECT YOUR PROFILE
+				</div>
+				<div style="display:none;" class="firstStep">
+					<img id="" class="profileMan" src="img/man.png" />
+					<img id="" class="profileWoman" src="img/woman.png" />
+				</div>
+				<div class="secondStep">
+					<div class="headerSecondStep">
+						<span> MAN </span> - SELECT YOUR INTEREST
+					</div>
+					<img id="" class="profilePhotography" src="img/photography.png" />
+					<img id="" class="profileHistory" src="img/history.png" />
+					<img id="" class="profileNature" src="img/nature.png" />
+				</div>
+				<img id="" class="selectProfileBackgroundImage" src="img/US_background.jpg" />
+			 
 
+ 		</div>
+		 	
+		<div style="" class="tab">CONFIG</div>
+			
 		<div class="tremulaContainer main"></div>
 
 	 
