@@ -362,28 +362,30 @@ body .gridBox.isLastContentBlock{
 }
 .headerSecondStep{
 	background-color: #b0d136;
-	top: 15%;
-	min-height: 3%;
-	max-height: 6%;
+ 	top: 160px;
+	height: 60px;
 	position: absolute;
-	padding: 2%;
-	padding-left: 3%;
+	padding: 10px;
+	padding-left: 50px;
 	font-size: 38px;
-	color: #fff;
-	line-height: 90%;
+	color: #fff; 
 	font-weight: 500;
 	width: 100%;
+	line-height: 60px;
 	margin: 0px !important;
+	z-index: 98;
 }
 .headerFirstStep{
 	background-color: #00aa00;
-	height: 7%;
+	height: 140px;
+	line-height: 140px;
 	position: absolute;
-	padding: 3%;
+	padding: 10px;
+	padding-left: 50px;
 	font-size: 60px;
 	color: #fff;
 	font-weight: 500;
-
+	z-index: 99;
 	width: 100%;
 	margin: 0px !important;
 }
