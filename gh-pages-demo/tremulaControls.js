@@ -385,6 +385,10 @@ function attachDemoControls(tremula) {
             globalModel = boxObj.model.data;
             $("#likeButton").removeClass("icon-cube-hover"); //add the class to the clicked element
             updateImageStats(boxObj.model.data)
+            $.get("http://146.148.2.249:3000/artworks/visits/" + globalModel.id, function(data) {
+
+            });
+
 
             $.get("http://146.148.2.249:3000/artworks/artwork/" + globalModel.id, function(data) {
                 updateImageStats(data)
