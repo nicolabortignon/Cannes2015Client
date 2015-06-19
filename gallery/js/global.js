@@ -15,19 +15,19 @@ function shareOn(event) {
     case 'fa fa-google-plus':
       getRequest(postUrl + 'googleplus/' + imgParam);
       element.href = 'https://plus.google.com/share?url=' +
-          currentHref;
+          postResponse.shortURL;
       break;
     case 'fa fa-facebook':
       getRequest(postUrl + 'facebook/' + imgParam);
       element.href =
           'http://www.facebook.com/sharer.php?t=Example text' +
-          '&u=' + currentHref;
+          '&u=' + postResponse.shortURL;
       break;
     case 'fa fa-twitter':
       getRequest(postUrl + 'twitter/' + imgParam);
       element.href = 'https://twitter.com/intent/tweet?text=' +
           'Example text @GOOGLECANNES ' +
-          currentHref;
+          postResponse.shortURL;
       break;
   }
 };
