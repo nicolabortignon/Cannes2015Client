@@ -32,7 +32,7 @@ function shareOn(event) {
               name: 'My Name',
               link: postResponse.shortURL,
               picture: imgUrl + postResponse.imageURL,
-              description: 'This is my description',
+              description: 'This is my description'
             }, function(response){});
       break;
     case 'fa fa-twitter':
