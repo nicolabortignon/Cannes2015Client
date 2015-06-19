@@ -27,7 +27,7 @@ function shareOn(event) {
       getRequest(postUrl + 'twitter/' + imgParam);
       element.href = 'https://twitter.com/intent/tweet?text=' +
           'Example text @GOOGLECANNES ' +
-          postResponse.shortURL;
+          postResponse.shortURL + '&hashtags=hello,anotherone';
       break;
   }
 };
