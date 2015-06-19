@@ -36,6 +36,12 @@ function getRequest(url) {
 }
 
 
+// Handle POST request
+function postRequest() {
+  var myRequest = new XMLHttpRequest();
+}
+
+
 // Get Param(id) from url, then get the image using the param.
 // Add image to DOM.
 function getImage() {
@@ -43,8 +49,13 @@ function getImage() {
   var createUrl = getUrl + imgParam;
   var json_obj = JSON.parse(getRequest(createUrl));
   var myImage = imgUrl + json_obj.imageURL;
-  var element = document.getElementsByTagName('BODY');
-  element[0].style.backgroundImage = 'url(' + myImage + ')';
+  var img = document.createElement('IMG');
+  img.setAttribute('src', myImage);
+  img.setAttribute('class', 'my-image');
+  document.getElementById('container').appendChild(img);
+  // console.log(img);
+  // var element = document.getElementsByTagName('BODY');
+  // element[0].style.backgroundImage = 'url(' + myImage + ')';
 }
 
 
