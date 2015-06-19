@@ -37,8 +37,7 @@ html, body {
 .share {
   border-radius: 10px;
   color: #eee;
-  height: 200px;
-  width: 200px;
+  width: calc(100% - 10px);
   position: absolute;
   top: 10px;
   left: 10px;
@@ -63,8 +62,8 @@ html, body {
   border-radius: 10px;
   font-size: 30px;
   cursor: pointer;
-  width: 60px;
-  padding: 14px 0;
+  width: 3%;
+  padding: 3%;
   margin: 0 2px;
   text-align: center;
   vertical-align: middle;
