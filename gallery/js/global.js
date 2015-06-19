@@ -19,9 +19,17 @@ function shareOn(event) {
       break;
     case 'fa fa-facebook':
       getRequest(postUrl + 'facebook/' + imgParam);
-      element.href =
-          'http://www.facebook.com/sharer.php?t=Example text' +
-          '&u=' + postResponse.shortURL;
+      // element.href =
+            // 'https://www.facebook.com/dialog/share?' +
+            // 'app_id=650727728361999' +
+            // '&display=popup' +
+            // '&href=http://146.148.2.249/' +
+            // '&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer';
+            FB.ui(
+             {
+              method: 'share',
+              href: 'https://developers.facebook.com/docs/'
+            }, function(response){});
       break;
     case 'fa fa-twitter':
       getRequest(postUrl + 'twitter/' + imgParam);
