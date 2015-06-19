@@ -468,7 +468,7 @@ function attachDemoControls(tremula) {
 
     function loadArtDotCom(url_, cb) {
         console.log("STARTED GALLERY WITH PROFILE " + currentProfile)
-        var dataUrl = 'http://146.148.2.249:3000/artworks/galleries/2';
+        var dataUrl = 'http://146.148.2.249:3000/artworks/galleries/2/' + currentProfile;
 
         // var dataUrl = 'decorProductSearch.json';
         $.getJSON(dataUrl, function(res) {
