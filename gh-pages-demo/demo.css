@@ -318,19 +318,19 @@ body .gridBox.isLastContentBlock{
 	position: absolute;
 	left: 50%;
 	top: 35%;
-	margin-left: -650px;
+	margin-left: -570px;
 }
 .profileHistory{
 	position: absolute;
 	left: 50%;
 	top: 35%;
-	margin-left: -200px;
+	margin-left: -190px;
 }
 .profileNature{
 	position: absolute;
 	left: 50%;
 	top: 35%;
-	margin-left: 250px;
+	margin-left: 190px;
 }
 .selectProfile{
 	position: absolute;
