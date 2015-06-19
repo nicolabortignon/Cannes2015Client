@@ -1,5 +1,5 @@
 function updateImageStats(model) {
-    console.log(model);
+
     var totalShares = model.facebookShares + model.twitterShares + model.googlePlusShares;
     var totalLikes = model.likes;
     var shortURL = model.shortURL;
@@ -12,13 +12,18 @@ function updateImageStats(model) {
     $('#qrCode').attr({
         src: model.qrCodeURL
     });
-
-
-
-
 }
 
 
+
+$("#likeButton").click(function() {
+
+    $.get("ajax/test.html", function(data) {
+        $(".result").html(data);
+        alert("Load was performed.");
+    });
+    $(this).addClass("icon-cube-hover"); //add the class to the clicked element
+});
 
 
 function attachDemoControls(tremula) {
