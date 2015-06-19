@@ -1,30 +1,30 @@
 // URLS
 var getUrl = 'http://146.148.2.249:3000/artworks/artwork/';
-var postUrl = 'http://146.148.2.249/artworks/updateShareCounter/'
+var postUrl = 'http://146.148.2.249:3000/artworks/updateShareCounter/'
 var imgUrl = 'http://146.148.2.249/';
 var imgParam;
 var postResponse;
 
 
 // Handle click on share icons.
-function shareOn() {
+function shareOn(event) {
   var name = event.target.className;
   var element = event.target;
   var currentHref = location.href;
   switch (name) {
     case 'fa fa-google-plus':
-      postRequest(postUrl + 'googleplus/:' + imgParam);
+      getRequest(postUrl + 'googleplus/' + imgParam);
       element.href = 'https://plus.google.com/share?url=' +
           currentHref;
       break;
     case 'fa fa-facebook':
-      postRequest(postUrl + 'facebookplus/:' + imgParam);
+      getRequest(postUrl + 'facebook/' + imgParam);
       element.href =
           'http://www.facebook.com/sharer.php?t=Example text' +
           '&u=' + currentHref;
       break;
     case 'fa fa-twitter':
-      postRequest(postUrl + 'twitterplus/:' + imgParam);
+      getRequest(postUrl + 'twitter/' + imgParam);
       element.href = 'https://twitter.com/intent/tweet?text=' +
           'Example text @GOOGLECANNES ' +
           currentHref;
@@ -39,14 +39,6 @@ function getRequest(url) {
   myRequest.open('get', url, false);
   myRequest.send();
   return myRequest.responseText;
-}
-
-
-// Handle POST request
-function postRequest(url) {
-  var myRequest = new XMLHttpRequest();
-  myRequest.open('POST', url, true);
-  myRequest.send();
 }
 
 
