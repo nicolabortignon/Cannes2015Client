@@ -23,7 +23,7 @@
 		<script src="gh-pages-demo/tremulaConfig.js"></script>
 		<script src="gh-pages-demo/tremulaControls.js"></script>
 		<script src="gh-pages-demo/tremulaProjections.js"></script>
-
+		<script src="gh-pages-demo/setupSelectionProfile.js"></script>
 		<script src="bower_components/statsjs.js/build/stats.min.js"></script>
 
 		<script src="dist/Tremula.js"></script>
@@ -33,6 +33,7 @@
 
 
 			$().ready(function(){
+					setupSelectionProfile();
 					var stats = new Stats();
 					 stats.setMode( 1 ); // 0: fps, 1: ms, 2: mb
 
@@ -50,16 +51,7 @@
 					};
 					requestAnimationFrame( update );
 
-				setTimeout(function(){
-					var tremula = tremulaInit();
-					//tremula.Grid.updateConfig({itemConstraint:200,itemMargins:[20,20]});
-					attachDemoControls(tremula);
-					window.tremula=tremula;//does not need to be on the window -- implemented here for convienience.
-
-					//$('body').removeClass('doReflect');
-					//toggleDebug();
-
-				},1000);
+				
 			});
 
 
@@ -100,23 +92,23 @@
  
 	<body class="doReflect"> 
  	
- 		<div class="selectProfile">
+ 		<div id="selectProfile" class="selectProfile">
  				 
 			 
 				<div class="headerFirstStep">
 					SELECT YOUR PROFILE
 				</div>
-				<div style="display:none;" class="firstStep">
-					<img id="" class="profileMan" src="img/man.png" />
-					<img id="" class="profileWoman" src="img/woman.png" />
+				<div id="firstStep"  class="firstStep">
+					<img id="profileMan" class="profileMan" src="img/man.png" />
+					<img id="profileWoman" class="profileWoman" src="img/woman.png" />
 				</div>
-				<div class="secondStep">
+				<div id="secondStep" class="secondStep">
 					<div class="headerSecondStep">
-						<span> MAN </span> - SELECT YOUR INTEREST
+						<span id="genderDescription">MAN</span> - SELECT YOUR INTEREST
 					</div>
-					<img id="" class="profilePhotography" src="img/photography.png" />
-					<img id="" class="profileHistory" src="img/history.png" />
-					<img id="" class="profileNature" src="img/nature.png" />
+					<img id="profilePhotography" class="profilePhotography" src="img/photography.png" />
+					<img id="profileHistory" class="profileHistory" src="img/history.png" />
+					<img id="profileNature" class="profileNature" src="img/nature.png" />
 				</div>
 				<img id="" class="selectProfileBackgroundImage" src="img/US_background.jpg" />
 			 

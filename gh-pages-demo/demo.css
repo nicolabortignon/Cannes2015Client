@@ -362,8 +362,9 @@ body .gridBox.isLastContentBlock{
 }
 .headerSecondStep{
 	background-color: #b0d136;
-	top: 16%;
-	height: 3%;
+	top: 15%;
+	min-height: 3%;
+	max-height: 6%;
 	position: absolute;
 	padding: 2%;
 	padding-left: 3%;
