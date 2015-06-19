@@ -1,0 +1,73 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+html, body {
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+}
+
+.filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0;
+  z-index: -1;
+}
+
+.share {
+  border-radius: 10px;
+  color: #eee;
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.share h1 {
+  width: 200px;
+  background: #333;
+  border-radius: 10px;
+  font-size: 26px;
+  font-weight: normal;
+  padding: 14px 0;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.fa {
+  background: #333;
+  border-radius: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  width: 60px;
+  padding: 14px 0;
+  margin: 0 2px;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+
+}
+
+.fa:visited {
+  color: #eee;
+  text-decoration: none;
+}
+
+.fa:hover {
+  background: #eee;
+  color: #333;
+  opacity: 0.9;
+}
