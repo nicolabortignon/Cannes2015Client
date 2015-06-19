@@ -2,6 +2,10 @@ var currentProfile = -1;
 var currentGender = -1; // 0 = man , 1 = woman
 var currentInterest = -1; //  0 = photography , 1 = history , 2= nature
 
+
+
+
+
 function setupSelectionProfile() {
     console.log("SETUP PROFILE -----")
     $('#secondStep').hide();
@@ -65,6 +69,14 @@ function showTheExperience() {
     $('#selectProfile').hide()
     $('#firstStep').hide();
     $('#secondStep').hide()
+    $('#likeNumber').hide();
+    $('#closeButton').hide();
+    $('#likeButton').hide();
+    $('#qrCodeHolder').hide();
+    $('#shortURL').hide();
+    $('#shareNumber').hide();
+    $('#likeNumber').hide();
+
 }
 
 
@@ -75,6 +87,13 @@ function startExperience() {
         var tremula = tremulaInit();
         //tremula.Grid.updateConfig({itemConstraint:200,itemMargins:[20,20]});
         attachDemoControls(tremula);
+        $('#likeNumber').show();
+        $('#closeButton').show();
+        $('#likeButton').show();
+        $('#qrCodeHolder').show();
+        $('#shortURL').show();
+        $('#shareNumber').show();
+        $('#likeNumber').show();
         window.tremula = tremula; //does not need to be on the window -- implemented here for convienience.
 
         //$('body').removeClass('doReflect');

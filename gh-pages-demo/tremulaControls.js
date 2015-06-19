@@ -1,3 +1,26 @@
+function updateImageStats(model) {
+    console.log(model);
+    var totalShares = model.facebookShares + model.twitterShares + model.googlePlusShares;
+    var totalLikes = model.likes;
+    var shortURL = model.shortURL;
+
+    var shareSentence = totalShares + (totalShares > 1 ? " shares" : " share")
+    var likeSentence = totalLikes + (totalLikes > 1 ? " likes" : " like")
+    $("#shareNumber").text(shareSentence);
+    $("#likeNumber").text(likeSentence);
+    $('#shortURL').text(shortURL)
+    $('#qrCode').attr({
+        src: model.qrCodeURL
+    });
+
+
+
+
+}
+
+
+
+
 function attachDemoControls(tremula) {
     $('#imageDetailContainer').hide()
 
@@ -356,7 +379,11 @@ function attachDemoControls(tremula) {
             }
         }
         if (boxObj) {
-            console.log(boxObj.model.imgUrl)
+
+
+            updateImageStats(boxObj.model.data)
+
+            console.log(boxObj.model.data.facebookShares)
             $('#popupImage').attr({
                 src: boxObj.model.imgUrl
             });
