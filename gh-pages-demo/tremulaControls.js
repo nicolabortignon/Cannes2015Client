@@ -1,4 +1,10 @@
+var globalModel;
+
 function updateImageStats(model) {
+
+
+
+
 
     var totalShares = model.facebookShares + model.twitterShares + model.googlePlusShares;
     var totalLikes = model.likes;
@@ -15,15 +21,6 @@ function updateImageStats(model) {
 }
 
 
-
-$("#likeButton").click(function() {
-
-    $.get("ajax/test.html", function(data) {
-        $(".result").html(data);
-        alert("Load was performed.");
-    });
-    $(this).addClass("icon-cube-hover"); //add the class to the clicked element
-});
 
 
 function attachDemoControls(tremula) {
@@ -385,8 +382,16 @@ function attachDemoControls(tremula) {
         }
         if (boxObj) {
 
-
+            globalModel = boxObj.model.data;
+            $("#likeButton").removeClass("icon-cube-hover"); //add the class to the clicked element
             updateImageStats(boxObj.model.data)
+
+            $.get("http://146.148.2.249:3000/artworks/artwork/" + globalModel.id, function(data) {
+                updateImageStats(data)
+
+            });
+
+
 
             console.log(boxObj.model.data.facebookShares)
             $('#popupImage').attr({
