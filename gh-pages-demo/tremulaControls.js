@@ -1,4 +1,6 @@
 var globalModel;
+var currentVisitId;
+
 
 function updateImageStats(model) {
 
@@ -27,7 +29,17 @@ function attachDemoControls(tremula) {
     $('#imageDetailContainer').hide()
 
     $("#closeButton").click(function() {
-        console.log("close ")
+        // CLOSE CURRENT VISIT
+        // 
+        console.log("CLOSE BUTTON")
+        $.get("http://localhost:3000/artworks/visits/close/" + currentVisitId, function(data) {
+
+        });
+
+
+
+
+
         $('#imageDetailContainer').hide()
 
     })
@@ -386,7 +398,8 @@ function attachDemoControls(tremula) {
             $("#likeButton").removeClass("icon-cube-hover"); //add the class to the clicked element
             updateImageStats(boxObj.model.data)
             $.get("http://146.148.2.249:3000/artworks/visits/" + globalModel.id, function(data) {
-
+                console.log("VISIT ID " + data.id)
+                currentVisitId = data.id;
             });
 
 
