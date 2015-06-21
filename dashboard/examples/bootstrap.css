@@ -6,12 +6,13 @@
 
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 html {
-  font-family: sans-serif;
+ 
+font-family: 'Roboto', sans-serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
 body {
-
+font-family: 'Roboto', sans-serif;
   margin: 0;
   margin-top: 100px;
 }
@@ -275,7 +276,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ font-family: 'Roboto', sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
@@ -3643,7 +3644,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  min-height: 50px;
+  min-height: 70px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
@@ -4023,8 +4024,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #333;
 }
 .navbar-inverse {
-  background-color: #222;
-  border-color: #080808;
+  background-color: #252734;
+  border-color: #252734;
 }
 .navbar-inverse .navbar-brand {
   color: #999;
@@ -4764,13 +4765,16 @@ a.list-group-item-danger.active:focus {
           box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
 .panel-body {
-  padding: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .panel-heading {
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+    font-size: 20px !important;
+
 }
 .panel-heading > .dropdown .dropdown-toggle {
   color: inherit;
@@ -4778,7 +4782,7 @@ a.list-group-item-danger.active:focus {
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 16px;
+  font-size: 20px !important;
   color: inherit;
 }
 .panel-title > a {
@@ -5792,6 +5796,19 @@ button.close {
 
 /* ADDITIONAL */ 
 
+.listTop{
+  margin-top: 4px;
+  width: 100%;
+  height: 65px;  
+}
 
-
+.ratio{
+    position:relative;
+    width: 100%;
+    padding-bottom: 50% ; /* % of width, defines aspect ratio*/
+    
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;  
+}
 

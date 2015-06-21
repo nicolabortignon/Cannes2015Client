@@ -6,21 +6,19 @@
   <title>Realtime ticks</title>
   <link rel="stylesheet" href="dist/angular-chart.css">
   <link href="examples/bootstrap.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app="examples">
  <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+               
                 </button>
                 <a class="navbar-brand" href="#">
-                    <img src="http://placehold.it/150x50&text=Logo" alt="">
+                    <img height="46px" src="../img/logoDCLK.png" alt="">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -29,16 +27,86 @@
         <!-- /.container -->
     </nav>
 
+<div class="container-fluid"> 
+  <div class="row" ng-controller="TopPerCities">
+        <div ng-repeat="city in cities" class="col-lg-2 col-sm-12"  ng-controller="DoughnutCtrl">
+
+          <div class="panel panel-default">
+            <div class="panel-heading">{{city.name}}</div>
+            <div class="panel-body">
+
+               <div class="table-responsive">
+                        <table class="table user-list">
+                            <tbody>
+                                <tr ng-repeat="position in city.top"class="listTop">
+                                    <td width="50%">
+                                                <div class="ratio" style="background-image:url('../{{position.imageURL}}')" />
+                                       
+                                      
+                                    </td>
+                                    <td>   <a href="#" class="user-link">Full name 1</a>
+                                        <span class="user-subhead">Member</span></td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
 
 
-<div class="container"></div>
-<div id="container" class="container">
+ 
+                </div>
+            </div>
+          </div>
+        </div>
+         
+        
+      </div>
+</div>
+
+<div class="container-fluid"> 
   <div class="row">
-    <div class="col-lg-8 col-sm-12" ng-controller="TicksCtrl">
+        <div class="col-lg-4 col-sm-12" id="doughnut-chart" ng-controller="DoughnutCtrl">
+          <div class="panel panel-default">
+            <div class="panel-heading">Profile Used</div>
+            <div class="panel-body">
+              <canvas id="doughnut" style="padding-top: 10px" height="100" class="chart chart-doughnut chart-xs" data="data" labels="labels" legend="true"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12" id="doughnut-chart" ng-controller="DoughnutCtrl">
+          <div class="panel panel-default">
+            <div class="panel-heading">Social Share</div>
+            <div class="panel-body">
+              <canvas id="doughnut" style="padding-top: 10px" height="100" class="chart chart-doughnut chart-xs" data="dataShares" labels="labelsShare" legend="true"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-12" id="doughnut-chart" ng-controller="DoughnutCtrl">
+          <div class="panel panel-default">
+            <div class="panel-heading">City Split</div>
+            <div class="panel-body">
+              <canvas id="doughnut" style="padding-top: 10px" height="100" class="chart chart-doughnut chart-xs" data="dataCity" labels="labelsCity" legend="true"></canvas>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+</div>
+<div id="container" class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 col-sm-12" ng-controller="TicksCtrl">
       <div class="panel panel-default">
-        <div class="panel-heading">Ticks Chart</div>
+        <div class="panel-heading"> Images Viewed </div>
         <div class="panel-body">
-          <canvas id="ticks" class="chart chart-line chart-xl" data="data" options="options" labels="labels"></canvas>
+          <canvas id="ticks" height="95" class="chart chart-line chart-xl" data="visits" options="options" labels="labels"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-12" ng-controller="TicksCtrl">
+      <div class="panel panel-default">
+        <div class="panel-heading">Images Liked</div>
+        <div class="panel-body">
+          <canvas id="ticks" height="95" class="chart chart-line chart-xl" data="likes" options="options" labels="labelsLike"></canvas>
         </div>
       </div>
     </div>
