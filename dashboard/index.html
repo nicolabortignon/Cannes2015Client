@@ -44,8 +44,20 @@
                                        
                                       
                                     </td>
-                                    <td>   <span class="user-link">{{position.visits}} visits</span> <br />
-                                        <span class="user-subhead">{{position.likes}} </span></td>
+                                    <td>   
+                                        <span class="user-link">
+                                     <ng-pluralize count="position.visits"
+                                           when="{'0': 'No views',
+                                               'one': '1 view',
+                                               'other': '{} views'}">
+                                    </ng-pluralize>
+                                        </span> <br />
+                                        <span class="user-subhead">
+                                        <ng-pluralize count="position.likes"
+                                           when="{'0': 'No likes',
+                                               'one': '1 like',
+                                               'other': '{} likes'}">
+                                    </ng-pluralize></span></td>
                                 </tr>
                                 
                             </tbody>
