@@ -28,7 +28,7 @@ function shareOn(event) {
             FB.ui(
              {
               method: 'share',
-              href: 'http://146.148.2.249/gallery/?id=9',
+              href: 'http://146.148.2.249/gallery/index.html?id=9',
             }, function(response){});
       break;
     case 'fa fa-twitter':
