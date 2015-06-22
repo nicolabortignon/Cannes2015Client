@@ -1,7 +1,9 @@
 
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- <meta name="viewport" content="width=device-width, user-scalable=no"> -->
+
+<meta name="viewport" content="width=1920">
 
   <!-- <script type="text/javascript" src="HTML5_Base64_Video_AutoPlay_Progressive_Download.js"></script>-->
   <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'> -->
@@ -30,6 +32,7 @@ var invitationY2;
 
 // iframe
 var ic;
+var scw,sch;
 
 //*** Mobile Detect ***
 var isMobile = {
@@ -102,13 +105,22 @@ window.onload = function() {
   }else{
     invitation2.addEventListener('click',startLbAnim2,false);
   }
+
+  setupExpDim();
 };
 
 
 var setupExpDim = function(){
+  // Resize screen to fit Full HD
+  scw = (window.innerWidth/1920);
+  sch = (window.innerHeight/1080);
+  document.getElementsByTagName('html')[0].style.transformOrigin='0 0';
+  document.getElementsByTagName('html')[0].style.transform = "scale("+scw+","+sch+")";
+  expanded.style.width = window.innerWidth/scw+'px';
+  expanded.style.height = window.innerHeight/sch+'px';
 
-  lb_exp.style.width = Math.floor(window.innerWidth - 60)+"px";
-  lb_exp.style.height = Math.floor(window.innerHeight - 60)+"px";
+  lb_exp.style.width = Math.floor(1920 - 60)+"px";
+  lb_exp.style.height = Math.floor(1080 - 60)+"px";
   close_btn.style.left = (getPosition(lb_exp).x + lb_exp.offsetWidth)+"px";
   close_btn.style.top = (getPosition(lb_exp).y)+"px";
   close_btn.style.marginTop = "-21px";
@@ -224,8 +236,8 @@ var expandLb = function(){
   }
   invitation.removeEventListener('mouseout',closeLb,false);
   clearInterval(animInterval);
-  invitation.style.left = ((window.innerWidth / 2) - 192)+"px";
-  invitation.style.top = ((window.innerHeight / 2) - 135)+"px";
+  invitation.style.left = (1920/2 - (invitation.offsetWidth/2))+"px";
+  invitation.style.top = (1080/2 - (invitation.offsetHeight/2))+"px";
   
   setTimeout(function(){
 
@@ -243,8 +255,8 @@ var expandLb2 = function(){
   invitation2.removeEventListener('mouseout',closeLb,false);
   
   clearInterval(animInterval);
-  invitation2.style.left = ((window.innerWidth / 2) - 144)+"px";
-  invitation2.style.top = ((window.innerHeight / 2) - 432)+"px";
+  invitation2.style.left = (1920/2 - (invitation2.offsetWidth/2))+"px";
+  invitation2.style.top = (1080/2 - (invitation2.offsetHeight/2))+"px";
   
   setTimeout(function(){
 
@@ -458,7 +470,7 @@ function getPosition(e) {
 .expanded{
   position:absolute;
   width:100%;
-  height:100%;
+  height:120%;
   background-color: rgba(0,0,0,0.5);
   top:0px;
   left:0px;
