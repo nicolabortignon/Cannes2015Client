@@ -27,12 +27,8 @@ function shareOn(event) {
             // '&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer';
             FB.ui(
              {
-              method: 'share',
+              method: 'feed',
               href: 'http://146.148.2.249/gallery/?id=9',
-              name: 'My Name',
-              link: postResponse.shortURL,
-              picture: imgUrl + postResponse.imageURL,
-              description: 'This is my description'
             }, function(response){});
       break;
     case 'fa fa-twitter':
