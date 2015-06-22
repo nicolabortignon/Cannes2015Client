@@ -107,8 +107,13 @@ window.onload = function() {
   }
 
   setupExpDim();
+  document.getElementById("Table_01").addEventListener('click',goFull, false);
 };
 
+var goFull = function(){
+  document.getElementById("Table_01").removeEventListener('click',goFull, false);
+  launchIntoFullscreen(document.documentElement);
+}
 
 var setupExpDim = function(){
   // Resize screen to fit Full HD
@@ -284,6 +289,23 @@ function getPosition(e) {
     }
     return { x: x + window.scrollX, y: y + window.scrollY };
 }
+
+
+// Fullscreen management
+
+// Find the right method, call on correct element
+function launchIntoFullscreen(element) {
+  if(element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if(element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if(element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  } else if(element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+  }
+}
+
 
   </script>
   <style>
