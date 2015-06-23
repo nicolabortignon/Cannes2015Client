@@ -27,7 +27,7 @@ function shareOn(event) {
             // '&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer';
             FB.ui({
                 method: 'share',
-                href: currentHREF,
+                href: currentHref,
             }, function(response) {});
             break;
         case 'fa fa-twitter':
