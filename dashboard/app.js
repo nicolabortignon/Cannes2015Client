@@ -271,36 +271,43 @@
         getTopColor();
 
         function getTopColor(id) {
-            $http.get('http://146.148.2.249:3000/artworks/topOverAll/1').
-            success(function(data, status, headers, config) {
-                $scope.topColor = " NAN"
-                $scope.top = data;
+            var secondsPerIteration = 5;
+
+            $interval(function() {
 
 
-                // ROUTINE FOR CHECKING THE IMAGES PATTERN!!!
-                // 
-                var colorThief = new ColorThief();
+                $http.get('http://146.148.2.249:3000/artworks/topOverAll/1').
+                success(function(data, status, headers, config) {
+                    $scope.topColor = " NAN"
+                    $scope.top = data;
 
 
-                $('#imageHolder').append($('<img>', {
-                    src: "http://146.148.2.249/" + data[0].imageURL,
-                    id: "topImage",
-                    alt: "Test Image",
-                    title: "Test Image"
-                }));
-
-                $('#topImage').load(function() {
-
+                    // ROUTINE FOR CHECKING THE IMAGES PATTERN!!!
+                    // 
                     var colorThief = new ColorThief();
-                    var color = colorThief.getColor(document.getElementById("topImage"), 10);
-                    $scope.topColor = rgbToHex(color[0], color[1], color[2])
-                    $scope.topBrighter = increase_brightness($scope.topColor, 20)
-                    $("#topImage").remove()
-
-                });
 
 
-            })
+                    $('#imageHolder').append($('<img>', {
+                        src: "http://146.148.2.249/" + data[0].imageURL,
+                        id: "topImage",
+                        alt: "Test Image",
+                        title: "Test Image"
+                    }));
+
+                    $('#topImage').load(function() {
+
+                        var colorThief = new ColorThief();
+                        var color = colorThief.getColor(document.getElementById("topImage"), 10);
+                        $scope.topColor = rgbToHex(color[0], color[1], color[2])
+                        $scope.topBrighter = increase_brightness($scope.topColor, 20)
+                        $("#topImage").remove()
+
+                    });
+
+
+                })
+
+            }, secondsPerIteration * 1000);
         }
     });
 
