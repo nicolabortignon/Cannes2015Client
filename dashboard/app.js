@@ -231,7 +231,7 @@
                 $scope.cities[i].top[0].imageURL;
 
                 $('#imageHolder').append($('<img>', {
-                    src: "http://146.148.2.249:8000/" + data[0].imageURL,
+                    src: "http://146.148.2.249/" + data[0].imageURL,
                     id: "colorImage" + i,
                     alt: "Test Image",
                     title: "Test Image"
