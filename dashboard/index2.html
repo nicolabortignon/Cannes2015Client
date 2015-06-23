@@ -33,7 +33,7 @@
 
 <div class="container-fluid"> 
   <div  >
-       <div class="col-lg-4 col-sm-12" id="radar-chart" ng-controller="RadarCtrl">
+       <div style="margin-left: 5px;" class="col-lg-4 col-sm-12" id="radar-chart" ng-controller="RadarCtrl">
           <div class="panel panel-default">
               <div class="panel-heading">Location Preference by Profile</div>
                 <div class="panel-body">
@@ -46,7 +46,7 @@
           </div>
       </div>
 
-        <div class="col-lg-4 col-sm-12"  ng-controller="MostPredominantColor">
+        <div style="margin-left: -5px;" class="col-lg-4 col-sm-12"  ng-controller="MostPredominantColor">
            <div class="panel panel-default">
             <div class="panel-heading">Favorite Colors Per Location</div>
             <div class="panel-body">
@@ -71,8 +71,23 @@
                 </div>
             </div>
           </div>
-        </div>
-     
+        
+      <div style="margin-left: -2px;" class="col-lg-4 col-sm-12"  ng-controller="CannesWinningColor">
+           <div class="panel panel-default">
+            <div class="panel-heading">Cannes Favorite Color</div>
+            <div style="height: 295px" class="panel-body">
+                    
+                     <div style="background-color: #00ff00" class="overSaturate" id="containerDot">
+                      <div style="  border-color: {{topBrighter}}" class="dot"></div>
+                      <div style="background-color: {{topColor}}; border-color: {{topBrighter}}" class="pulse"></div>
+                    </div>
+                                </div>
+
+ 
+                </div>
+            </div>
+          </div>
+        
 
        </div>
 </div>

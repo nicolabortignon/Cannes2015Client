@@ -261,6 +261,50 @@
     });
 
 
+    app.controller('CannesWinningColor', function($scope, $interval, $http) {
+
+
+        var secondsPerIteration = 5;
+        var numberInTop = 1;
+        $scope.cities = []
+
+        getTopColor();
+
+        function getTopColor(id) {
+            $http.get('http://146.148.2.249:3000/artworks/topOverAll/1').
+            success(function(data, status, headers, config) {
+                $scope.topColor = " NAN"
+                $scope.top = data;
+
+
+                // ROUTINE FOR CHECKING THE IMAGES PATTERN!!!
+                // 
+                var colorThief = new ColorThief();
+
+
+                $('#imageHolder').append($('<img>', {
+                    src: "http://146.148.2.249/" + data[0].imageURL,
+                    id: "topImage",
+                    alt: "Test Image",
+                    title: "Test Image"
+                }));
+
+                $('#topImage').load(function() {
+
+                    var colorThief = new ColorThief();
+                    var color = colorThief.getColor(document.getElementById("topImage"), 10);
+                    $scope.topColor = rgbToHex(color[0], color[1], color[2])
+                    $scope.topBrighter = increase_brightness($scope.topColor, 20)
+                    $("#topImage").remove()
+
+                });
+
+
+            })
+        }
+    });
+
+
     app.controller('RadarCtrl', function($scope, $interval, $http) {
         $scope.labels = ['New York', 'West Coast', 'Europe', 'Africa', 'India', 'East Asia', ["test"]];
 
