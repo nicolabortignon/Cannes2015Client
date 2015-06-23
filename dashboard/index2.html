@@ -123,8 +123,8 @@
     <div class="col-lg-6 col-sm-12" ng-controller="randomPicture">
       <div class="panel panel-default">
         <div class="panel-heading"> Like this Artwork? Find it in {{picture[0].name}} </div>
-        <div class="panel-body">
-            <img ng-src="../{{picture[0].imageURL}}" class="img-responsive" />
+        <div class="panel-body text-center" style="height: 450px; overflow: hidden;">
+            <img width="100%" ng-src="../{{picture[0].imageURL}}" class="img-responsive" />
      
         </div>
       </div>
@@ -132,8 +132,8 @@
      <div class="col-lg-6 col-sm-12" id="bar-chart" ng-controller="BarCtrl">
           <div class="panel panel-default">
             <div class="panel-heading">Bar Chart</div>
-            <div class="panel-body">
-              <canvas id="bar" class="chart chart-bar" data="data" labels="labels" series="series"
+            <div class="panel-body"  >
+              <canvas height="145px" id="bar" class="chart chart-bar" data="data" labels="labels" series="series"
                       legend="true" options="options"></canvas>
             </div>
           </div>
