@@ -57,22 +57,48 @@
         }
     ]);
 
-    app.controller('BarCtrl', ['$scope', '$timeout',
-        function($scope, $timeout) {
+    app.controller('BarCtrl', ['$scope', '$timeout', '$interval', '$http',
+        function($scope, $timeout, $interval, $http) {
+            var secondsPerIteration = 10;
             $scope.options = {
                 scaleShowVerticalLines: false
             };
-            $scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-            $scope.series = ['Series A', 'Series B'];
+            $scope.labels = ['1am', '2am', '3am', '4am', '5am', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm', '10pm', '11pm', '12am'];
+            $scope.series = ['Visits', 'Likes'];
             $scope.data = [
-                [65, 59, 80, 81, 56, 55, 40],
-                [28, 48, 40, 19, 86, 27, 90]
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ];
-            $timeout(function() {
-                $scope.options = {
-                    scaleShowVerticalLines: true
-                };
-            }, 3000);
+
+
+
+            $interval(function() {
+                getViewsLiveData();
+                getLikesLiveData();
+            }, secondsPerIteration * 1000);
+
+            getLikesLiveData();
+            getViewsLiveData();
+
+            function getViewsLiveData() {
+                $http.get('http://146.148.2.249:3000/artworks/last24Visits').
+                success(function(data, status, headers, config) {
+                    for (var i = 0; i < data.length; i++) {
+                        $scope.data[0][data[i].h] = data[i].count;
+                    }
+
+                })
+            }
+
+            function getLikesLiveData() {
+                $http.get('http://146.148.2.249:3000/artworks/last24Likes').
+                success(function(data, status, headers, config) {
+                    for (var i = 0; i < data.length; i++) {
+                        $scope.data[1][data[i].h] = data[i].count;
+                    }
+
+                })
+            }
         }
     ]);
 
@@ -459,7 +485,7 @@
             randomPicture()
 
             function randomPicture() {
-            $http.get('http://146.148.2.249:3000/artworks/randomPicture').
+                $http.get('http://146.148.2.249:3000/artworks/randomPicture').
                 success(function(data, status, headers, config) {
                     $scope.picture = data;
                 })
