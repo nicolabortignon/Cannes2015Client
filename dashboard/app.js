@@ -385,6 +385,64 @@
         };
     });
 
+
+    app.controller('generalStats', ['$scope', '$interval', '$http',
+
+        function($scope, $interval, $http) {
+
+            var secondsPerIteration = 1;
+            $scope.totalVisits = 0;
+            $scope.totalShares = 0;
+            $scope.totalExperiences = 0;
+
+            $scope.labels = [];
+            $scope.labelsLike = [];
+            $scope.options = {
+                animation: false,
+                showScale: true,
+                showTooltips: false,
+                pointDot: true,
+                datasetStrokeWidth: 0.5
+            };
+
+            // Update the dataset at 25FPS for a smoothly-animating chart
+            $interval(function() {
+                getTotalVisits();
+                getTotalLikes();
+                getTotalExperiences()
+            }, secondsPerIteration * 1000);
+
+            getTotalVisits();
+            getTotalLikes();
+            getTotalExperiences()
+
+            function getTotalVisits() {
+                $http.get('http://146.148.2.249:3000/artworks/totalVisits').
+                success(function(data, status, headers, config) {
+                    $scope.totalVisits = data.count;
+                })
+            }
+
+            function getTotalLikes() {
+                $http.get('http://146.148.2.249:3000/artworks/totalLikes').
+                success(function(data, status, headers, config) {
+
+                    $scope.totalShares = data[0].twitter + data[0].facebook + data[0].googlePlus + data[0].likes;
+                })
+            }
+
+
+            function getTotalExperiences() {
+                $http.get('http://146.148.2.249:3000/artworks/totalExperiences').
+                success(function(data, status, headers, config) {
+                    console.log(data)
+                    $scope.totalExperiences = data.count;
+                })
+            }
+        }
+    ]);
+
+
     app.controller('TicksCtrl', ['$scope', '$interval', '$http',
 
         function($scope, $interval, $http) {

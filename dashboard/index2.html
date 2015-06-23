@@ -93,29 +93,25 @@
 </div>
 
 <div class="container-fluid"> 
-  <div class="row">
-        <div class="col-lg-4 col-sm-12" id="doughnut-chart" ng-controller="DoughnutCtrl">
+  <div class="row text-center" ng-controller="generalStats">
+        <div class="col-lg-4 col-sm-12"  >
           <div class="panel panel-default">
-            <div class="panel-heading">Profile Used</div>
-            <div class="panel-body">
-              <canvas id="doughnut" style="padding-top: 10px" height="100" class="chart chart-doughnut chart-xs" data="data" labels="labels" legend="true"></canvas>
+          <div class="panel-body">
+              <h3>{{totalVisits}} images viewed</h3> 
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-sm-12" id="doughnut-chart" ng-controller="DoughnutCtrl">
+               <div class="col-lg-4 col-sm-12"  >
           <div class="panel panel-default">
-            <div class="panel-heading">Social Share</div>
-            <div class="panel-body">
-              <canvas id="doughnut" style="padding-top: 10px" height="100" class="chart chart-doughnut chart-xs" data="dataShares" labels="labelsShare" legend="true"></canvas>
+          <div class="panel-body">
+              <h3>{{totalShares}} likes &amp; shares</h3> 
             </div>
           </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-12" id="doughnut-chart" ng-controller="DoughnutCtrl">
+        </div> 
+        <div class="col-lg-4 col-sm-12"  >
           <div class="panel panel-default">
-            <div class="panel-heading">City Split</div>
-            <div class="panel-body">
-              <canvas id="doughnut" style="padding-top: 10px" height="100" class="chart chart-doughnut chart-xs" data="dataCity" labels="labelsCity" legend="true"></canvas>
+          <div class="panel-body">
+              <h3>{{totalExperiences}} dynamic cretive updates</h3> 
             </div>
           </div>
         </div>
