@@ -6,9 +6,13 @@
   <title>Realtime ticks</title>
   <link rel="stylesheet" href="dist/angular-chart.css">
   <link href="examples/bootstrap.css" rel="stylesheet">
+    <script src="../libs/colorLibNick.js"></script>
+        <script src="../libs/jquery-min.js"></script>
+      <script src="../libs/color-thief.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app="examples">
+<div   id="imageHolder"> </div>
  <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
@@ -28,17 +32,49 @@
     </nav>
 
 <div class="container-fluid"> 
-  <div class="row" ng-controller="TopPerCities">
-       <div class="col-lg-6 col-sm-12" id="radar-chart" ng-controller="RadarCtrl">
+  <div  >
+       <div class="col-lg-4 col-sm-12" id="radar-chart" ng-controller="RadarCtrl">
           <div class="panel panel-default">
-            <div class="panel-heading">City Preference by Profile</div>
+              <div class="panel-heading">Location Preference by Profile</div>
+                <div class="panel-body">
+                      <div class="fakeLegend">
+                      <ul class="doughnut-legend"><li><span style="background-color:rgba(0,185,215,1)"></span>Man/Photography</li><li><span style="background-color:rgba(0,132,144,1)"></span>Man/History</li><li><span style="background-color:rgba(255,140,0,1)"></span>Man/Nature</li><li><span style="background-color:rgba(255,96,74,1)"></span>Woman/Photography</li><li><span style="background-color:rgba(215,0,0,1)"></span>Woman/History</li><li><span style="background-color:rgba(147,0,63,1)"></span>Woman/Nature</li></ul>
+                      </div>
+                  <canvas style="margin-left: 70px;" id="area" options="options" class="chart chart-radar" data="data" legend="false" labels="labels" click="onClick"></canvas>
+                </div>
+            </div>
+          </div>
+      </div>
+
+        <div class="col-lg-4 col-sm-12"  ng-controller="MostPredominantColor">
+           <div class="panel panel-default">
+            <div class="panel-heading">Favorite Colors Per Location</div>
             <div class="panel-body">
-              <canvas id="area" class="chart chart-radar" data="data" legend="true" labels="labels" click="onClick"></canvas>
+                
+                     
+                              <div style="margin-bottom: 20px;">
+                                <div ng-repeat="city in cities"class="listTop" style="margin: 0px; padding: 0px; max-height: 30px !important;">
+                                    
+                                                 
+
+                                       
+
+                                    <div style="background: linear-gradient(90deg, {{city.colors[0]}}, {{city.colors[1]}}, {{city.colors[2]}}, {{city.colors[3]}});" class="colorPalette">
+                                          {{city.name}}
+                                    </div>
+                                      
+                                </div>     
+                    
+                  </div>
+
+ 
+                </div>
             </div>
           </div>
         </div>
-        
-      </div>
+     
+
+       </div>
 </div>
 
 <div class="container-fluid"> 

@@ -17,6 +17,9 @@
             legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"><%=segments[i].value%></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
 
         });
+
+
+
     });
 
     app.controller('MenuCtrl', function($scope) {
@@ -102,6 +105,8 @@
 
                     $scope.cities[i].top = data;
 
+
+                    //var colorRGBArray = colorThief.getColor(document.getElementById("colorImage"));
 
                 })
             }
@@ -192,13 +197,78 @@
         };
     });
 
+    app.controller('MostPredominantColor', function($scope, $interval, $http) {
+
+
+        var secondsPerIteration = 5;
+        var numberInTop = 1;
+        $scope.cities = []
+        $http.get('http://146.148.2.249:3000/artworks/cities').
+        success(function(data, status, headers, config) {
+            $scope.cities = data;
+
+            $interval(function() {
+                for (var i = 0; i < $scope.cities.length; i++) {
+
+                    getTopPerCity($scope.cities[i].id, i);
+
+                }
+
+            }, secondsPerIteration * 1000);
+
+        })
+
+        function getTopPerCity(id, i) {
+            $http.get('http://146.148.2.249:3000/artworks/topPerCity/' + numberInTop + "/" + id).
+            success(function(data, status, headers, config) {
+
+                $scope.cities[i].top = data;
+
+
+                // ROUTINE FOR CHECKING THE IMAGES PATTERN!!!
+                // 
+                var colorThief = new ColorThief();
+                $scope.cities[i].top[0].imageURL;
+
+                $('#imageHolder').append($('<img>', {
+                    src: "http://localhost:8000/" + data[0].imageURL,
+                    id: "colorImage" + i,
+                    alt: "Test Image",
+                    title: "Test Image"
+                }));
+
+                $('#colorImage' + i).load(function() {
+
+                    var colorThief = new ColorThief();
+                    var colorPallet = colorThief.getPalette(document.getElementById("colorImage" + i), 5);
+                    $("#colorImage" + i).remove()
+                    $scope.cities[i].colors = []
+
+                    for (var k = 0; k < colorPallet.length; k++) {
+                        $scope.cities[i].colors.push(increase_brightness(rgbToHex(colorPallet[k][0], colorPallet[k][1], colorPallet[k][2]), 20))
+                    }
+                    $scope.cities[i].colors = sortColors($scope.cities[i].colors)
+
+
+
+                    // document.getElementById("invitation2").style.webkitFilter = "hue-rotate(" + adjustValueForDCLK + "deg)";
+                    // document.getElementById("lb_anim2").style.webkitFilter = "hue-rotate(-" + adjustValueForDCLK + "deg)";
+
+                });
+
+
+            })
+        }
+    });
+
+
     app.controller('RadarCtrl', function($scope, $interval, $http) {
         $scope.labels = ['New York', 'West Coast', 'Europe', 'Africa', 'India', 'East Asia', ["test"]];
+
         var secondsPerIteration = 5;
 
         $interval(function() {
             getCityPerProfile();
-            getLikesLiveData();
         }, secondsPerIteration * 1000);
 
         getCityPerProfile();
