@@ -192,13 +192,32 @@
         };
     });
 
-    app.controller('RadarCtrl', function($scope) {
-        $scope.labels = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
+    app.controller('RadarCtrl', function($scope, $interval, $http) {
+        $scope.labels = ['New York', 'West Coast', 'Europe', 'Africa', 'India', 'East Asia', ["test"]];
+        var secondsPerIteration = 5;
 
-        $scope.data = [
-            [65, 59, 90, 81, 56, 55, 40],
-            [28, 48, 40, 19, 96, 27, 100]
-        ];
+        $interval(function() {
+            getCityPerProfile();
+            getLikesLiveData();
+        }, secondsPerIteration * 1000);
+
+        getCityPerProfile();
+
+        function getCityPerProfile() {
+            $http.get('http://146.148.2.249:3000/artworks/CityPreferencePerProfile/').
+            success(function(data, status, headers, config) {
+                $scope.data = [
+                    data[0].city,
+                    data[1].city,
+                    data[2].city,
+                    data[3].city,
+                    data[4].city,
+                    data[5].city
+                ]
+            })
+        }
+
+
 
         $scope.onClick = function(points, evt) {
             console.log(points, evt);
