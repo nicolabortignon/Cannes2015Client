@@ -12,8 +12,8 @@ tremulaConfigs = {
             }, //large will apply to anything over medium limit
 
             adapter: null, //this.dataAdapters.JudyItem,//a default adapter incase none is specified during import
-            itemConstraint: 500,
-            itemMargins: [30, 30],
+            itemConstraint: 600,
+            itemMargins: [40, 40],
             staticAxisOffset: 0, //px
             scrollAxisOffset: 20, //px
             scrollAxis: 'x',

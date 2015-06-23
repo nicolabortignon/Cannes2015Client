@@ -497,6 +497,8 @@ function attachDemoControls(tremula) {
     }
 
     resizeFn = function() {};
+    resizeFn = autoColumnSize;
+    resizeFn(tremula);
 
     $(".autoSize").click(function() {
         resizeFn = autoColumnSize;
@@ -524,6 +526,27 @@ function attachDemoControls(tremula) {
         console.log("STARTED GALLERY WITH PROFILE " + cityID)
         var dataUrl = 'http://146.148.2.249:3000/artworks/galleries/' + cityID + '/' + currentProfile;
 
+
+
+        if (cityID > 4) { // ASIA AND INDIA , display vertically
+
+            s.toggleScrollAxis('y');
+            setTimeout(function() {
+                $body.removeClass('doReflect');
+                s.doTransition(tremula.layouts.basicGridLayout, {
+                    steppedScrolling: false,
+                    axes: 0,
+                    itemConstraint: 950,
+                    itemMargins: [45, 45],
+                    staticAxisOffset: 0
+                }, 800, tremula.easings.easeOutElastic, tremula.projections.pinterest);
+                resizeFn = autoColumnSize;
+                resizeFn(tremula)
+            }, 100)
+
+
+
+        }
         // var dataUrl = 'decorProductSearch.json';
         $.getJSON(dataUrl, function(res) {
 
