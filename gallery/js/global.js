@@ -10,6 +10,7 @@ function shareOn(event) {
     var name = event.target.className;
     var element = event.target;
     var currentHref = location.href;
+    console.log(currentHref)
     switch (name) {
         case 'fa fa-google-plus':
             getRequest(postUrl + 'googleplus/' + imgParam);
