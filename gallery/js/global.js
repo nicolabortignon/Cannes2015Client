@@ -2,7 +2,6 @@
 var getUrl = 'http://146.148.2.249:3000/artworks/artwork/';
 var postUrl = 'http://146.148.2.249:3000/artworks/updateShareCounter/'
 var imgUrl = 'http://146.148.2.249/';
-var imgParam;
 var postResponse;
 
 

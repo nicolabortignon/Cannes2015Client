@@ -42,10 +42,10 @@
 
 var currentHREF;
 window.addEventListener('load', function() {
-    imgParam = location.href.split('id=')[1];
+    imgParam = %;
     var createUrl = getUrl + imgParam;
     postResponse = JSON.parse(getRequest(createUrl));
-    currentHREF = 'http://146.148.2.249/gallery/index.html?id='
+    currentHREF = 'http://146.148.2.249/gallery/image%.html'
     document.addEventListener('click', shareOn);
     displayImage();
 });
