@@ -441,7 +441,32 @@
             }
         }
     ]);
+    app.controller('randomPicture', ['$scope', '$interval', '$http',
 
+        function($scope, $interval, $http) {
+            $scope.picture
+            var secondsPerIteration = 70;
+
+
+
+
+            // Update the dataset at 25FPS for a smoothly-animating chart
+            $interval(function() {
+                randomPicture();
+
+            }, secondsPerIteration * 1000);
+
+            randomPicture()
+
+            function randomPicture() {
+            $http.get('http://146.148.2.249:3000/artworks/randomPicture').
+                success(function(data, status, headers, config) {
+                    $scope.picture = data;
+                })
+            }
+
+        }
+    ]);
 
     app.controller('TicksCtrl', ['$scope', '$interval', '$http',
 

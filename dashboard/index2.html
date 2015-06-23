@@ -120,11 +120,11 @@
 </div>
 <div id="container" class="container-fluid">
   <div class="row">
-    <div class="col-lg-6 col-sm-12" ng-controller="TicksCtrl">
+    <div class="col-lg-6 col-sm-12" ng-controller="randomPicture">
       <div class="panel panel-default">
-        <div class="panel-heading"> Images Viewed </div>
+        <div class="panel-heading"> Like this Picture? find in {{city}} </div>
         <div class="panel-body">
-          <canvas id="ticks" height="95" class="chart chart-line chart-xl" data="visits" options="options" labels="labels"></canvas>
+            <img ng-src="{{picture}}" class="img-responsive" />
         </div>
       </div>
     </div>
