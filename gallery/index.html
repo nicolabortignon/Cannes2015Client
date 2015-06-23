@@ -40,11 +40,12 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
 
-      
+var currentHREF;
 window.addEventListener('load', function() {
     imgParam = location.href.split('id=')[1];
     var createUrl = getUrl + imgParam;
     postResponse = JSON.parse(getRequest(createUrl));
+    currentHREF = 'http://146.148.2.249/gallery/index.html?id='
     document.addEventListener('click', shareOn);
     displayImage();
 });

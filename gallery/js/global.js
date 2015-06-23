@@ -27,7 +27,7 @@ function shareOn(event) {
             // '&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer';
             FB.ui({
                 method: 'share',
-                href: 'http://146.148.2.249/gallery/index.html?id=9',
+                href: currentHREF,
             }, function(response) {});
             break;
         case 'fa fa-twitter':
