@@ -5,11 +5,11 @@ with open("tabseparatedInfo") as tsv:
     	with open ("index.html", "r") as myfile:
 		    data=myfile.read().replace('\n', '')
 		    id = line[0]
-		    newData = data.replace('%', ''+str(id))
-		    newData = newData.replace('*', ''+str(line[1]))
-		    text_file = open("index"+str(id)+".html", "w")
-		    text_file.write(newData)
-		    text_file.close()
-		 
+		    #newData = data.replace('%', ''+str(id))
+		    #newData = newData.replace('*', ''+str(line[1]))
+		    #text_file = open("index"+str(id)+".html", "w")
+		    #text_file.write(newData)
+		    #text_file.close()
+		    print "http://146.148.2.249/gallery/index"+str(id)+".html";
 
 		
