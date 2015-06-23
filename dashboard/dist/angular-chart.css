@@ -52,13 +52,18 @@
  }
 
 .colorPalette{
+	-webkit-filter: saturate(3);
+    filter: saturate(3);
 	background-color: #333;
 
 	width: 100%;
-	margin-top: 13px;
+	margin-top: 16px;
 	line-height: 40px; 
-	height: 40px;
+	height: 43px;
 	border-radius: 5px;
 	color: #fff;
+	font-size: 17px;
 	text-align: center;
 }
+
+.overSaturate

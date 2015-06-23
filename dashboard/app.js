@@ -231,7 +231,7 @@
                 $scope.cities[i].top[0].imageURL;
 
                 $('#imageHolder').append($('<img>', {
-                    src: "http://146.148.2.249/" + data[0].imageURL,
+                    src: "http://localhost:8000/" + data[0].imageURL,
                     id: "colorImage" + i,
                     alt: "Test Image",
                     title: "Test Image"
@@ -247,7 +247,6 @@
                     for (var k = 0; k < colorPallet.length; k++) {
                         $scope.cities[i].colors.push(increase_brightness(rgbToHex(colorPallet[k][0], colorPallet[k][1], colorPallet[k][2]), 20))
                     }
-                    $scope.cities[i].colors = sortColors($scope.cities[i].colors)
 
 
 
