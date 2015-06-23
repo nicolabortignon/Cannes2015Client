@@ -39,6 +39,15 @@
          js.src = "//connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
+
+      
+window.addEventListener('load', function() {
+    imgParam = location.href.split('id=')[1];
+    var createUrl = getUrl + imgParam;
+    postResponse = JSON.parse(getRequest(createUrl));
+    document.addEventListener('click', shareOn);
+    displayImage();
+});
     </script>
     <div id="container">
       <section class="share">

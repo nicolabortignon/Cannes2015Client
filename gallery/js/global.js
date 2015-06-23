@@ -57,12 +57,3 @@ function displayImage() {
     img.setAttribute('class', 'my-image');
     document.getElementById('container').appendChild(img);
 }
-
-
-window.addEventListener('load', function() {
-    imgParam = location.href.split('id=')[1];
-    var createUrl = getUrl + imgParam;
-    postResponse = JSON.parse(getRequest(createUrl));
-    document.addEventListener('click', shareOn);
-    displayImage();
-});
