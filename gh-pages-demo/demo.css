@@ -328,7 +328,7 @@ body .gridBox.isLastContentBlock{
 	position: absolute;
 	left: 50%;
 	top: 35%;
-	margin-left: -570px;
+	margin-left: -560px;
 }
 .profileHistory{
 	position: absolute;
@@ -340,7 +340,7 @@ body .gridBox.isLastContentBlock{
 	position: absolute;
 	left: 50%;
 	top: 35%;
-	margin-left: 190px;
+	margin-left: 180px;
 }
 .selectProfile{
 	position: absolute;
