@@ -324,23 +324,54 @@ body .gridBox.isLastContentBlock{
   	text-align: center;
 
 }
-.profilePhotography{
-	position: absolute;
-	left: 50%;
-	top: 35%;
-	margin-left: -560px;
+
+@media screen and (max-width: 1100px) {
+    .profilePhotography{
+		position: absolute;
+		left: 50%;
+		top: 35%;
+		width: 300px;
+		margin-left: -490px;
+	}
+	.profileHistory{
+		position: absolute;
+		left: 50%;
+		top: 35%;
+				width: 300px;
+		margin-left: -160px;
+	}
+	.profileNature{
+		position: absolute;
+		left: 50%;
+		top: 35%;
+		width: 300px;
+		margin-left: 170px;
+	}
+
 }
-.profileHistory{
-	position: absolute;
-	left: 50%;
-	top: 35%;
-	margin-left: -190px;
-}
-.profileNature{
-	position: absolute;
-	left: 50%;
-	top: 35%;
-	margin-left: 180px;
+
+@media screen and (min-width: 1101px) {
+	.profilePhotography{
+		position: absolute;
+		left: 50%;
+		top: 35%;
+		margin-left: -560px;
+	}
+
+
+	.profileHistory{
+		position: absolute;
+		left: 50%;
+		top: 35%;
+		margin-left: -190px;
+	}
+	.profileNature{
+		position: absolute;
+		left: 50%;
+		top: 35%;
+		 
+		margin-left: 180px;
+	}
 }
 .selectProfile{
 	position: absolute;
