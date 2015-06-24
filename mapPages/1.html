@@ -589,9 +589,9 @@ function launchIntoFullscreen(element) {
                 $("#colorImage").remove()
               });
           });
-}catch(err) {
-    document.getElementById("demo").innerHTML = err.message;
-}
+          }catch(err) {
+              document.getElementById("demo").innerHTML = err.message;
+          }
         }
 
          function fetchColorSchema2(){
@@ -630,9 +630,9 @@ function launchIntoFullscreen(element) {
         }
 
         fetchColorSchema2();
-        setInterval( fetchColorSchema2, 20000 );
+        setInterval( fetchColorSchema2, 200000 );
         fetchColorSchema();
-        setInterval( fetchColorSchema, 20000 );
+        setInterval( fetchColorSchema, 200000 );
          
          
     });
