@@ -56,7 +56,7 @@ var isMobile = {
       return navigator.userAgent.match(/IEMobile/i);
   },
   any: function() {
-      return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()) && hasTouchScreen();
+      return true;//(isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()) && hasTouchScreen();
   }
 };
 
@@ -176,7 +176,7 @@ var startLbAnim = function(){
   if (isMobile.any()){
     invitation.addEventListener('touchstart',closeLb,false);
   }else{
-    invitation.addEventListener('click',expandLb,false);
+    // invitation.addEventListener('click',expandLb,false);
   }
   lb_anim.style.display = 'block';
   lb_anim.style.opacity = '1';
@@ -200,7 +200,7 @@ var startLbAnim2 = function(){
   if (isMobile.any()){
     invitation2.addEventListener('touchstart',closeLb,false);
   }else{
-    invitation2.addEventListener('click',expandLb2,false);
+    // invitation2.addEventListener('click',expandLb2,false);
   }
   lb_anim2.style.display = 'block';
   lb_anim2.style.opacity = '1';
@@ -256,7 +256,7 @@ var expandLb = function(){
   if (isMobile.any()){
     invitation.removeEventListener('touchstart',closeLb,false);
   }else{
-    invitation.removeEventListener('click',expandLb,false);
+    // invitation.removeEventListener('click',expandLb,false);
   }
   invitation.removeEventListener('mouseout',closeLb,false);
   clearInterval(animInterval);
@@ -274,7 +274,7 @@ var expandLb2 = function(){
   if (isMobile.any()){
     invitation2.removeEventListener('touchstart',closeLb,false);
   }else{
-    invitation2.removeEventListener('click',expandLb2,false);
+    // invitation2.removeEventListener('click',expandLb2,false);
   }
   invitation2.removeEventListener('mouseout',closeLb,false);
   
