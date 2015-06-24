@@ -4,6 +4,11 @@
 <!-- <meta name="viewport" content="width=device-width, user-scalable=no"> -->
 
 <meta name="viewport" content="width=1920">
+    
+    <script src="../libs/colorLibNick.js"></script>
+
+    <script src="../libs/jquery-min.js"></script>
+     <script src="../libs/color-thief.min.js"></script>
 
   <!-- <script type="text/javascript" src="HTML5_Base64_Video_AutoPlay_Progressive_Download.js"></script>-->
   <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'> -->
@@ -544,9 +549,84 @@ function getPosition(e) {
 }
 
   </style>
+    <script>
+
+      $( document ).ready(function() {
+        
+        //CALL THE MOST SEE IMAGE AND EXTRACT THE PATTERN
+        //
+        function fetchColorSchema(){
+          $.get("http://146.148.2.249:3000/artworks/topPerCity/1/3", function( data ) {
+            console.log(data[0].imageURL)
+
+              //src : "http://146.148.2.249/"+data[0].imageURL, 
+              $('#container').append($('<img>', { 
+                src : "http://146.148.2.249/"+data[0].imageURL, 
+               
+                id: "colorImage",
+                alt : "Test Image", 
+                title : "Test Image"
+              }));
+
+              $('#colorImage').load(function() {
+                console.log("IMAGE LOADED ")
+                 console.log("COLOR UIMG " +document.getElementById("colorImage"));
+                 var colorThief = new ColorThief();
+                 var colorRGBArray = colorThief.getColor(document.getElementById("colorImage"));
+                 var imageHue = rgbToHsl(colorRGBArray[0],colorRGBArray[1],colorRGBArray[2])[0] * 360;
+                 console.log(imageHue);
+
+                 var adjustValueForDCLK = (imageHue)// + 450)%360  // dclk color is hue = 90, using 360+90 for staying positive lol
+                 console.log(adjustValueForDCLK);
+                 document.getElementById("invitation").style.webkitFilter = "hue-rotate("+adjustValueForDCLK+"deg)";
+                 document.getElementById("lb_anim").style.webkitFilter = "hue-rotate(-"+adjustValueForDCLK+"deg)";
+                $("#colorImage").remove()
+              });
+          });
+        }
+
+         function fetchColorSchema2(){
+          $.get("http://146.148.2.249:3000/artworks/topPerCity/1/4", function( data ) {
+            console.log(data[0].imageURL)
+
+              //src : "http://146.148.2.249/"+data[0].imageURL, 
+              $('#container').append($('<img>', { 
+                src : "http://146.148.2.249/"+data[0].imageURL, 
+               
+                id: "colorImage2",
+                alt : "Test Image", 
+                title : "Test Image"
+              }));
+
+              $('#colorImage2').load(function() {
+          
+                 var colorThief = new ColorThief();
+                 var colorRGBArray = colorThief.getColor(document.getElementById("colorImage2"));
+             
+                 var imageHue = rgbToHsl(colorRGBArray[0],colorRGBArray[1],colorRGBArray[2])[0] * 360;
+                
+
+                 var adjustValueForDCLK = (imageHue)// + 450)%360  // dclk color is hue = 90, using 360+90 for staying positive lol
+                
+                 document.getElementById("invitation2").style.webkitFilter = "hue-rotate("+adjustValueForDCLK+"deg)";
+                 document.getElementById("lb_anim2").style.webkitFilter = "hue-rotate(-"+adjustValueForDCLK+"deg)";
+                $("#colorImage2").remove()
+              });
+          });
+        }
+
+        fetchColorSchema2();
+        setInterval( fetchColorSchema2, 20000 );
+        fetchColorSchema();
+        setInterval( fetchColorSchema, 20000 );
+         
+         
+    });
+
+  </script>
 </head>
 <body>
-<div class='main'>
+<div id="container" class='main'>
 
 <!-- fake page table -->
   <table id="Table_01" width="1920" height="1080" border="0" cellpadding="0" cellspacing="0">
