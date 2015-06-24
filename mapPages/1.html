@@ -281,7 +281,7 @@ function refreshIframe(){
 }
 
 window.onclick = function(e){
-  console.log(e.target.id);
+ 
 }
 function getPosition(e) {
     var isNotFirefox = (navigator.userAgent.toLowerCase().indexOf('firefox') == -1);
@@ -560,8 +560,11 @@ function launchIntoFullscreen(element) {
         //CALL THE MOST SEE IMAGE AND EXTRACT THE PATTERN
         //
         function fetchColorSchema(){
+
+          try {
+
           $.get("http://146.148.2.249:3000/artworks/topPerCity/1/1", function( data ) {
-            console.log(data[0].imageURL)
+         
 
               //src : "http://146.148.2.249/"+data[0].imageURL, 
               $('#container').append($('<img>', { 
@@ -573,26 +576,29 @@ function launchIntoFullscreen(element) {
               }));
 
               $('#colorImage').load(function() {
-                console.log("IMAGE LOADED ")
-                 console.log("COLOR UIMG " +document.getElementById("colorImage"));
+              
                  var colorThief = new ColorThief();
                  var colorRGBArray = colorThief.getColor(document.getElementById("colorImage"));
                  var imageHue = rgbToHsl(colorRGBArray[0],colorRGBArray[1],colorRGBArray[2])[0] * 360;
-                 console.log(imageHue);
+                  
 
                  var adjustValueForDCLK = (imageHue)// + 450)%360  // dclk color is hue = 90, using 360+90 for staying positive lol
-                 console.log(adjustValueForDCLK);
+                 
                  document.getElementById("invitation").style.webkitFilter = "hue-rotate("+adjustValueForDCLK+"deg)";
                  document.getElementById("lb_anim").style.webkitFilter = "hue-rotate(-"+adjustValueForDCLK+"deg)";
                 $("#colorImage").remove()
               });
           });
+}catch(err) {
+    document.getElementById("demo").innerHTML = err.message;
+}
         }
 
          function fetchColorSchema2(){
+         try {
           $.get("http://146.148.2.249:3000/artworks/topPerCity/1/2", function( data ) {
-            console.log(data[0].imageURL)
-
+             
+ 
               //src : "http://146.148.2.249/"+data[0].imageURL, 
               $('#container').append($('<img>', { 
                 src : "http://146.148.2.249/"+data[0].imageURL, 
@@ -617,6 +623,10 @@ function launchIntoFullscreen(element) {
                 $("#colorImage2").remove()
               });
           });
+}catch(err) {
+    document.getElementById("demo").innerHTML = err.message;
+}
+
         }
 
         fetchColorSchema2();

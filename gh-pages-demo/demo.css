@@ -278,15 +278,14 @@ body .gridBox.isLastContentBlock{
 
  
 #popupImage {
-    min-height:100%;
-    min-width:100%;
-    height:auto;
-    width:auto;
-    position:absolute;
-    top:-50%; bottom:-50%;
-    left:-50%; right:-50%;
-    margin:auto;
-    z-index: 10; 
+   width: 1920px;
+   height: 1080px;
+   position: absolute;
+   left: 50%;
+   top: 50%; 
+   margin-left: -960px;
+   margin-top: -540px;    
+   z-index: 10; 
 }
 
 #closeButton{
@@ -338,14 +337,14 @@ body .gridBox.isLastContentBlock{
 		left: 50%;
 		top: 35%;
 				width: 300px;
-		margin-left: -160px;
+		margin-left: -155px;
 	}
 	.profileNature{
 		position: absolute;
 		left: 50%;
 		top: 35%;
 		width: 300px;
-		margin-left: 170px;
+		margin-left: 180px;
 	}
 
 }
