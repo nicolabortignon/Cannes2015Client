@@ -31,7 +31,7 @@
 		<script type="text/javascript">
 			var likeButtonIsClicked = false;
 			var cityID = 1;
-			
+
 
 			function getParameterByName(name) {
 			    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -42,16 +42,18 @@
 			
 			$().ready(function(){
 					setupSelectionProfile();
+
+					
+					 cityID = getParameterByName("city");
+				
+					// align top-left
 					var stats = new Stats();
 					 stats.setMode( 0 ); // 0: fps, 1: ms, 2: mb
-					 cityID = getParameterByName("city");
-					 console.log(cityID);
-					// align top-left
 					stats.domElement.style.position = 'absolute';
 					stats.domElement.style.right = '0px';
 					stats.domElement.style.top = '0px';
 					document.body.appendChild( stats.domElement );
-
+					*/
 					var update = function () {
 					    stats.begin();
 					    // monitored code goes here
@@ -124,7 +126,7 @@
 
  		</div>
 		 	
-		<div style="" class="tab">CONFIG</div>
+		<div style="display:none; opacity:0" class="tab">CONFIG</div>
 			
 		<div class="tremulaContainer main"></div>
 
