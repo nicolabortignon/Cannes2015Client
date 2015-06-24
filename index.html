@@ -29,6 +29,9 @@
 		<script src="dist/Tremula.js"></script>
 
 		<script type="text/javascript">
+			var likeButtonIsClicked = false;
+			var cityID = 1;
+			
 
 			function getParameterByName(name) {
 			    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -36,7 +39,7 @@
 			        results = regex.exec(location.search);
 			    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 			}
-			var cityID = 1;
+			
 			$().ready(function(){
 					setupSelectionProfile();
 					var stats = new Stats();
@@ -265,12 +268,14 @@
 	}  
 
 	$("#likeButton").click(function() {
-	    
-	    $.get("http://146.148.2.249:3000/artworks/likes/" + globalModel.id, function(data) {
-	        updateImageStats(data)
-	        
-	    });
-   		$("#likeButton").addClass("icon-cube-hover"); //add the class to the clicked element
+	    if(likeButtonIsClicked == false){
+		    $.get("http://146.148.2.249:3000/artworks/likes/" + globalModel.id, function(data) {
+		        updateImageStats(data)
+		        
+		    });
+	   		likeButtonIsClicked = true;
+	   		$("#likeButton").addClass("icon-cube-hover"); //add the class to the clicked element
+	   	}
 	});
 				  
 
