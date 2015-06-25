@@ -276,8 +276,14 @@ body .gridBox.isLastContentBlock{
 	background-color: #eee;
 }
 
- 
+
 #popupImage {
+	background-image: url('../images/opening.jpg');
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+
     min-height:100%;
     min-width:100%;
     height:auto;
@@ -503,7 +509,7 @@ body .gridBox.isLastContentBlock{
   	color: #eee;
   	padding-top: 5px;
   	padding-bottom: 5px;
-  	font-size : 26px;
+  	font-size : 22px;
   	margin-left: 20px;
 }
 .likeNumber{
