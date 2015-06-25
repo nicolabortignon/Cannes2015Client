@@ -24,9 +24,6 @@ function updateImageStats(model) {
 }
 
 
-$('#qrCode').on('touchstart', function() {
-    window.open(globalModel.shortURL, 'SharingPage');
-})
 
 
 function attachDemoControls(tremula) {
