@@ -17,7 +17,7 @@ function updateImageStats(model) {
     $("#shareNumber").text(shareSentence);
     $("#likeNumber").text(likeSentence);
 
-    $('#shortURL').text(shortURL)
+    $('#shortURL').text(shortURL.substring(8))
     $('#qrCode').attr({
         src: "/img/qrCode/" + globalModel.id + ".png"
     });
