@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=1920">
     
     <script src="../libs/colorLibNick.js"></script>
-
+    <link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
     <script src="../libs/jquery-min.js"></script>
      <script src="../libs/color-thief.min.js"></script>
   <!-- <script type="text/javascript" src="HTML5_Base64_Video_AutoPlay_Progressive_Download.js"></script>-->
@@ -87,44 +87,7 @@ window.onload = function() {
   mpu_space = document.getElementById("mpu_space");
   invitationX = "1490";
   invitationY = "13";
-  invitation.style.left = invitationX + 'px';
-  invitation.style.top = invitationY + 'px';
-  invitation.style.display = 'block';
-  invitation.addEventListener('mouseover',startLbAnim,false);
-  invitation.addEventListener('mouseout',closeLb,false);
-  if (isMobile.any()){
-    invitation.addEventListener('touchstart',startLbAnim,false);
-  }else{
-    invitation.addEventListener('click',startLbAnim,false);
-  }
-  expanded.addEventListener('click',closeLb);
-  close_btn.addEventListener('click',closeLb);
-  if (isMobile.any()){
-    document.getElementById("lb_copy").innerHTML = "Tap to cancel...";
-    document.getElementById("lb_copy2").innerHTML = "Tap to cancel...";
-  }
   
-// SKY Setup
-
-  lb_anim2 = document.getElementById("lb_anim2");
-  invitation2 = document.getElementById("invitation2");
-  sky_space = document.getElementById("sky_space");
-  // invitationX2 = getPosition(sky_space).x;
-  // invitationY2 = getPosition(sky_space).y;
-  invitationX2 = 33;
-  invitationY2 = 13;
-  invitation2.style.left = invitationX2 + 'px';
-  invitation2.style.top = invitationY2 + 'px';
-  invitation2.style.display = 'block';
-  invitation2.addEventListener('mouseover',startLbAnim2,false);
-  invitation2.addEventListener('mouseout',closeLb,false);
-  if (isMobile.any()){
-    invitation2.addEventListener('touchstart',startLbAnim2,false);
-  }else{
-    invitation2.addEventListener('click',startLbAnim2,false);
-  }
-
-  setupExpDim();
   $('#opening').show();
   $('#experience').hide();
   document.getElementById("opening").addEventListener('click',goFull, false);
@@ -145,22 +108,7 @@ var setupExpDim = function(){
   expanded.style.width = window.innerWidth/scw+'px';
   expanded.style.height = window.innerHeight/sch+'px';
 
-  lb_exp.style.width = Math.floor(960 - 60)+"px";
-  lb_exp.style.height = Math.floor(600 - 60)+"px";
-  close_btn.style.left = (getPosition(lb_exp).x + lb_exp.offsetWidth)+"px";
-  close_btn.style.top = (getPosition(lb_exp).y)+"px";
-  close_btn.style.marginTop = "-21px";
-  close_btn.style.marginLeft = "-21px";
-  // invitationX = getPosition(mpu_space).x;
-  // invitationY = getPosition(mpu_space).y;
-  invitation.style.left = invitationX + 'px';
-  invitation.style.top = invitationY + 'px';
 
-  // invitationX2 = getPosition(sky_space).x;
-  //invitationY2 = getPosition(sky_space).y;
-  invitation2.style.left = invitationX2 + 'px';
-  invitation2.style.top = invitationY2 + 'px';
-  
 }
 
 window.onresize = function(){setupExpDim()};
@@ -556,11 +504,45 @@ function getPosition(e) {
   width: 100%;
   height: 100%;
 }
+#experience {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #252734;
+}
 #logoBig{
   position: absolute;
   top: 30%;
   width: 60%;
   left: 20%;
+}
+.button:first-child{
+  margin-top: 5% !important;
+}
+.button{
+  position: relative;
+  height: 13%;
+  width: 60%;
+  margin-top: 1%;
+  margin-bottom: 0%;
+  border-radius: 3px;
+  margin-left: 20%;
+  color: #fff;
+  line-height: 80px;
+  text-align: center;
+  background-color: #0a8490;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+}
+.button span{
+  background-color: red;
+  position: absolute;
+  top: 20%;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  display: block;
+  border-radius: 100px;
 }
 
   </style>
@@ -572,7 +554,7 @@ function getPosition(e) {
         //CALL THE MOST SEE IMAGE AND EXTRACT THE PATTERN
         //
         function fetchColorSchema(){
-
+          console.log('FETCH COLOR SCHEMA')
           try {
 
           $.get("http://146.148.2.249:3000/artworks/topPerCity/1/1", function( data ) {
@@ -588,11 +570,12 @@ function getPosition(e) {
               }));
 
               $('#colorImage').load(function() {
-              
+                console.log('color image')
                  var colorThief = new ColorThief();
                  var colorRGBArray = colorThief.getColor(document.getElementById("colorImage"));
+                 
                  var imageHue = rgbToHsl(colorRGBArray[0],colorRGBArray[1],colorRGBArray[2])[0] * 360;
-                  
+                 console.log("asd" + colorRGBArray); 
 
                  var adjustValueForDCLK = (imageHue)// + 450)%360  // dclk color is hue = 90, using 360+90 for staying positive lol
                  
@@ -642,9 +625,9 @@ function getPosition(e) {
         }
 
         fetchColorSchema2();
-        setInterval( fetchColorSchema2, 500000 );
+        setInterval( fetchColorSchema2, 5000 );
         fetchColorSchema();
-        setInterval( fetchColorSchema, 600000 );
+        setInterval( fetchColorSchema, 6000 );
          
          
     });
@@ -654,35 +637,17 @@ function getPosition(e) {
 <body>
 <div id="container" class='main'>
   <div id="experience">
-    <!-- fake page table -->
-      <table id="Table_01" width="960" height="600" border="0" cellpadding="0" cellspacing="0">
-      <tr>
-        <td colspan="1">
-          <img id="bg" src="background_fullHD_America.png" width="1920" height="1080" alt="">
-        </td>
-      </tr>
-    </table>
-
-    <!-- end fake pub page -->
-            <div id='invitation' class='border mpu_300_250 '>
-            <div id='lb_anim' class='lightbox_anim '>
-                <div id='progress_section'>
-                  <div id='lb_copy' class='lb_copy'>Expanding...</div>
-                  <div id="progressbar"><div id="progress" ><div id="pbaranim"></div></div></div>
-                </div>
-            </div>        
-          </div>
-
-          <div id='invitation2' class='border sky_160_600'>
-            <div id='lb_anim2' class='lightbox_anim'>
-                <div id='progress_section2'>
-                  <div id='lb_copy2' class='lb_copy'>Expanding...</div>
-                  <div id="progressbar2"><div id="progress2" ><div id="pbaranim2"></div></div></div>
-                </div>
-            </div>        
-          </div>
-          
-
+  
+      <div class="button">
+        <span id="color1"> </span>
+        US - West Cost
+      </div>
+      <div class="button"> <span id="color2"> </span>US - East Cost</div>
+      <div class="button"> <span id="color3"> </span>Europe</div>
+      <div class="button"> <span id="color4"> </span>Africa</div>
+      <div class="button"> <span id="color5"> </span>India</div>
+      <div class="button"> <span id="color6"> </span> East Asia</div>
+    </ul>
           <div id='expanded' class='expanded'>
             <div id='lb_exp' class='border lb_exp'>
               <iframe id='iframe_content' frameBorder="0" src="http://146.148.2.249/"></iframe>
