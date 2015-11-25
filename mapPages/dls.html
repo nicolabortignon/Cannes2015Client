@@ -63,7 +63,6 @@ var isMobile = {
 var hasTouchScreen = function(){var n=!1,o=function(n){return-1!==window.navigator.userAgent.toLowerCase().indexOf(n)};return("ontouchstart"in window||navigator.maxTouchPoints>0||navigator.msMaxTouchPoints>0)&&(o("NT 5")||o("NT 6.1")||o("NT 6.0")||(n=!0)),n};
 
 var launchIntoFullscreen = function( element) {
-  /*
     if(element.requestFullscreen) {
       element.requestFullscreen();
     } else if(element.mozRequestFullScreen) {
@@ -73,7 +72,7 @@ var launchIntoFullscreen = function( element) {
     } else if(element.msRequestFullscreen) {
       element.msRequestFullscreen();
     }
-  */
+  
     $('#opening').hide();
     $('#experience').show();
 }
