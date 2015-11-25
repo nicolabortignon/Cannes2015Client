@@ -63,6 +63,7 @@ var isMobile = {
 var hasTouchScreen = function(){var n=!1,o=function(n){return-1!==window.navigator.userAgent.toLowerCase().indexOf(n)};return("ontouchstart"in window||navigator.maxTouchPoints>0||navigator.msMaxTouchPoints>0)&&(o("NT 5")||o("NT 6.1")||o("NT 6.0")||(n=!0)),n};
 
 var launchIntoFullscreen = function( element) {
+  /*
     if(element.requestFullscreen) {
       element.requestFullscreen();
     } else if(element.mozRequestFullScreen) {
@@ -72,7 +73,7 @@ var launchIntoFullscreen = function( element) {
     } else if(element.msRequestFullscreen) {
       element.msRequestFullscreen();
     }
-  
+  */
     $('#opening').hide();
     $('#experience').show();
 }
@@ -90,6 +91,10 @@ window.onload = function() {
   $('#opening').show();
   $('#experience').hide();
   document.getElementById("opening").addEventListener('click',goFull, false);
+
+  document.getElementById("westCostButton").addEventListener('touchstart',expandLb,false);
+  document.getElementById("westCostButton").addEventListener('click',expandLb,false);
+
   
 };
 
@@ -105,23 +110,6 @@ var setupExpDim = function(){
 window.onresize = function(){setupExpDim()};
 
 var startLbAnim = function(){
-  invitation.style.transition = "all 0.25s ease-in-out";
-
-  invitation.removeEventListener('mouseover',startLbAnim,false);
-  if (isMobile.any()){
-    invitation.removeEventListener('touchstart',startLbAnim,false);
-  }else{
-    invitation.removeEventListener('click',startLbAnim,false);
-  }
-
-  if (isMobile.any()){
-    invitation.addEventListener('touchstart',closeLb,false);
-  }else{
-    // invitation.addEventListener('click',expandLb,false);
-  }
-  lb_anim.style.display = 'block';
-  lb_anim.style.opacity = '1';
-  document.getElementById("progress").className = "run-animation";
   clearInterval(animInterval);
   ic.src = 'http://146.148.2.249/?rand='+Math.random()+'&city=1';
   animInterval = setInterval(expandLb,1800);
@@ -194,16 +182,8 @@ var closeLb = function(){
 }
 
 var expandLb = function(){
-  if (isMobile.any()){
-    invitation.removeEventListener('touchstart',closeLb,false);
-  }else{
-    // invitation.removeEventListener('click',expandLb,false);
-  }
-  invitation.removeEventListener('mouseout',closeLb,false);
-  clearInterval(animInterval);
-  invitation.style.left = (960/2 - (invitation.offsetWidth/2))+"px";
-  invitation.style.top = (600/2 - (invitation.offsetHeight/2))+"px";
-  
+    ic.src = 'http://146.148.2.249/?rand='+Math.random()+'&city=1';
+  console.log('epxanding function ');
   setTimeout(function(){
 
     expanded.style.display = "block";
@@ -436,11 +416,11 @@ function getPosition(e) {
 
 .expanded{
   position:absolute;
-  width:100%;
-  height:120%;
+  width:98%;
+  height:98%;
   background-color: rgba(0,0,0,0.5);
-  top:0px;
-  left:0px;
+  top:1%;
+  left:1%;
   margin:0;
   padding:0;
   overflow:hidden;
@@ -628,7 +608,7 @@ function getPosition(e) {
 <div id="container" class='main'>
   <div id="experience">
   
-      <div class="button">
+      <div id="westCostButton" class="button">
         <span id="color1"> </span>
         US - West Cost
       </div>
