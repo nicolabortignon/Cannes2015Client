@@ -95,7 +95,8 @@ window.onload = function() {
   document.getElementById("westCostButton").addEventListener('touchstart',expandLb,false);
   document.getElementById("westCostButton").addEventListener('click',expandLb,false);
 
-  
+  document.getElementById("close_circle").addEventListener('touchstart',closeLb,false);
+  document.getElementById("close_circle").addEventListener('click',closeLb,false);
 };
 
 var goFull = function(){
@@ -141,42 +142,12 @@ var startLbAnim2 = function(){
 }
 
 var closeLb = function(){
-  invitation.style.transition = "";
-  invitation2.style.transition = "";
-
+   
   expanded.style.display = "none";
-  
-  invitation.style.left = invitationX + 'px';
-  invitation.style.top = invitationY + 'px';
-  invitation.style.marginTop = '0px';
-  invitation.style.marginLeft = '0px';
-  
-  invitation2.style.left = invitationX2 + 'px';
-  invitation2.style.top = invitationY2+ 'px';
-  invitation2.style.marginTop = '0px';
-  invitation2.style.marginLeft = '0px';
+   
 
   clearInterval(animInterval);
-  lb_anim.style.opacity = '0';
-  lb_anim.style.display = 'none';
-  document.getElementById("progress").className = "";
-  invitation.addEventListener('mouseover',startLbAnim,false);
-
-  lb_anim2.style.opacity = '0';
-  lb_anim2.style.display = 'none';
-  document.getElementById("progress2").className = "";
-  invitation2.addEventListener('mouseover',startLbAnim2,false);
-
-  if (isMobile.any()){
-    invitation.addEventListener('touchstart',startLbAnim,false);
-    invitation2.addEventListener('touchstart',startLbAnim2,false);
-  }else{
-    invitation.addEventListener('click',startLbAnim,false);
-    invitation2.addEventListener('click',startLbAnim2,false);
-  }  
-  invitation.addEventListener('mouseout',closeLb,false);
-  invitation2.addEventListener('mouseout',closeLb,false);
-
+ 
   // Refresh iframe
   refreshIframe();
 }
@@ -416,11 +387,11 @@ function getPosition(e) {
 
 .expanded{
   position:absolute;
-  width:98%;
-  height:98%;
+  width:95%;
+  height:97%;
   background-color: rgba(0,0,0,0.5);
   top:1%;
-  left:1%;
+  left:2%;
   margin:0;
   padding:0;
   overflow:hidden;
@@ -449,8 +420,11 @@ function getPosition(e) {
 
 .close_circle{
   background: url('close_circle.png');
-  width:42px;
-  height:42px;
+  background-size: 128px 128px;
+  width:128px;
+  height:128px;
+  position: absolute;
+  right: -30px;
   cursor:pointer;
   position:absolute;
 }
@@ -460,7 +434,7 @@ function getPosition(e) {
   top:0px;
   left:0px;
   width:100%;
-  height:100%;
+  height:97%;
 }
 
 #Table_01{
