@@ -101,14 +101,6 @@ var goFull = function(){
 
 var setupExpDim = function(){
   // Resize screen to fit Full HD
-  scw = (window.innerWidth/960);
-  sch = (window.innerHeight/600);
-  document.getElementsByTagName('html')[0].style.transformOrigin='0 0';
-  document.getElementsByTagName('html')[0].style.transform = "scale("+scw+","+sch+")";
-  expanded.style.width = window.innerWidth/scw+'px';
-  expanded.style.height = window.innerHeight/sch+'px';
-
-
 }
 
 window.onresize = function(){setupExpDim()};
@@ -575,7 +567,6 @@ function getPosition(e) {
                  var colorRGBArray = colorThief.getColor(document.getElementById("colorImage"));
                  
                  var imageHue = rgbToHsl(colorRGBArray[0],colorRGBArray[1],colorRGBArray[2])[0] * 360;
-                 console.log("asd" + colorRGBArray); 
 
                  var adjustValueForDCLK = (imageHue)// + 450)%360  // dclk color is hue = 90, using 360+90 for staying positive lol
                  
