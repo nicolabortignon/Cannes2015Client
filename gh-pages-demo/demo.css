@@ -360,25 +360,25 @@ body .gridBox.isLastContentBlock{
 	.profilePhotography{
 		position: absolute;
 		left: 50%;
-		top: 30%;
-  		width: 25%;
-    	margin-left: -10%;
-	}
-
-
+		left: 50%;
+    	top: 30%;
+    	width: 25%;
+    	margin-left: -40%;
+    }
 	.profileHistory{
 		position: absolute;
 		left: 50%;
-		top: 35%;
-		margin-left: -190px;
+    	top: 30%;
+    	width: 25%;
+		margin-left: -155px;
 	}
 	.profileNature{
 		position: absolute;
 		left: 50%;
-		top: 35%;
-		 
-		margin-left: 180px;
-	}
+    	top: 30%;
+   		width: 25%;
+    	margin-left: 20%;
+    }
 }
 .selectProfile{
 	background: url(../img/US_background.jpg);
