@@ -334,23 +334,24 @@ body .gridBox.isLastContentBlock{
     .profilePhotography{
 		position: absolute;
 		left: 50%;
-		top: 35%;
-		width: 300px;
-		margin-left: -490px;
-	}
+		left: 50%;
+    	top: 30%;
+    	width: 25%;
+    	margin-left: -40%;
+    }
 	.profileHistory{
 		position: absolute;
 		left: 50%;
-		top: 35%;
-				width: 300px;
+    	top: 30%;
+    	width: 25%;
 		margin-left: -155px;
 	}
 	.profileNature{
 		position: absolute;
 		left: 50%;
-		top: 35%;
-		width: 300px;
-		margin-left: 180px;
+    	top: 30%;
+   		width: 25%;
+    	margin-left: 20%;
 	}
 
 }
@@ -359,8 +360,9 @@ body .gridBox.isLastContentBlock{
 	.profilePhotography{
 		position: absolute;
 		left: 50%;
-		top: 35%;
-		margin-left: -560px;
+		top: 30%;
+  		width: 25%;
+    	margin-left: -10%;
 	}
 
 
@@ -413,7 +415,7 @@ body .gridBox.isLastContentBlock{
 	psoition: absolute;
 }
 .headerSecondStep{ 
- 	top: 40px;
+ 	top: 50px;
 	height: 60px;
 	position: absolute;
 	padding: 10px;
