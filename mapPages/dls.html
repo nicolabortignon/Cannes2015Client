@@ -79,7 +79,7 @@ var launchIntoFullscreen = function( element) {
     $('#opening').hide();
     $('#experience').show();
 }
-var loadedFunction = function() {
+window.load = function() {
   console.log('loaded');
   ic = document.getElementById('iframe_content');
   lb_anim = document.getElementById("lb_anim");
@@ -252,10 +252,10 @@ function getPosition(e) {
   <script>
 
       $( document ).ready(function() {
-        
-        loadedFunction();
         //CALL THE MOST SEE IMAGE AND EXTRACT THE PATTERN
         //
+        //
+        /*
         function fetchColorSchema(){
           console.log('FETCH COLOR SCHEMA')
           try {
@@ -329,7 +329,8 @@ function getPosition(e) {
         fetchColorSchema2();
         setInterval( fetchColorSchema2, 50000 );
         fetchColorSchema();
-        setInterval( fetchColorSchema, 60000 );         
+        setInterval( fetchColorSchema, 60000 );  
+        */       
     });
 
   </script>
