@@ -33,7 +33,7 @@ a{
 	width: 100%;
 }
 
-.boxLabel{display: none;font-size: 12px;font-weight: 100; color:#666;}
+.boxLabel{display: none;font-size: 1px;font-weight: 100; color:#fff;}
 
 
 .doReflect .boxLabel{
