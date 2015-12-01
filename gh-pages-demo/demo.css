@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 
 body{
 	font-family: 'Roboto', sans-serif;
@@ -379,14 +379,17 @@ body .gridBox.isLastContentBlock{
 	}
 }
 .selectProfile{
+	background: url(../img/US_background.jpg);
+ 	background-size: cover;
+ 	 background-position: center; 
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	z-index: 50;
 }
 .selectProfileBackgroundImage{
-	width: 100%;
 	height: 100%;
+
 }
 .profileMan{
 	position: absolute;
@@ -406,15 +409,14 @@ body .gridBox.isLastContentBlock{
 	z-index: 11;
 	psoition: absolute;
 }
-.headerSecondStep{
-	background-color: #b0d136;
- 	top: 160px;
+.headerSecondStep{ 
+ 	top: 80px;
 	height: 60px;
 	position: absolute;
 	padding: 10px;
 	padding-left: 50px;
 	font-size: 38px;
-	color: #fff; 
+	color: #48bcb7; 
 	font-weight: 500;
 	width: 100%;
 	line-height: 60px;
@@ -422,14 +424,13 @@ body .gridBox.isLastContentBlock{
 	z-index: 98;
 }
 .headerFirstStep{
-	background-color: #00aa00;
-	height: 140px;
-	line-height: 140px;
+	color: #54c1d6;
+	height: 100px;
+	line-height: 100px;
 	position: absolute;
 	padding: 10px;
 	padding-left: 50px;
-	font-size: 60px;
-	color: #fff;
+	font-size: 60px; 
 	font-weight: 500;
 	z-index: 99;
 	width: 100%;

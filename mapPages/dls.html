@@ -12,7 +12,9 @@
   <!-- <script type="text/javascript" src="HTML5_Base64_Video_AutoPlay_Progressive_Download.js"></script>-->
   <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'> -->
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>
-  <title>Cannes 2015 Lightbox Engine</title>
+
+  <link rel="stylesheet" type="text/css" href="../css/buttons.css" />
+  <title>DoubleClick Leadership Summit - 2015</title>
 	
   <script>
 var expanded;
@@ -77,7 +79,8 @@ var launchIntoFullscreen = function( element) {
     $('#opening').hide();
     $('#experience').show();
 }
-window.onload = function() {
+var loadedFunction = function() {
+  console.log('loaded');
   ic = document.getElementById('iframe_content');
   lb_anim = document.getElementById("lb_anim");
   invitation = document.getElementById("invitation");
@@ -88,12 +91,52 @@ window.onload = function() {
   invitationX = "1490";
   invitationY = "13";
   
-  $('#opening').show();
-  $('#experience').hide();
+  $('#opening').hide();
+  $('#experience').show();
   document.getElementById("opening").addEventListener('click',goFull, false);
 
-  document.getElementById("westCostButton").addEventListener('touchstart',expandLb,false);
-  document.getElementById("westCostButton").addEventListener('click',expandLb,false);
+  // Attach event listener to different locations. Passing the location as parameter
+  document.getElementById("westCostButton").addEventListener('touchstart',function(){
+    expandLb(1);
+  },false);
+  document.getElementById("westCostButton").addEventListener('click',function(){
+    expandLb(1);
+  },false);
+
+  document.getElementById("eastCostButton").addEventListener('touchstart',function(){
+    expandLb(2);
+  },false);
+  document.getElementById("eastCostButton").addEventListener('click',function(){
+    expandLb(2);
+  },false);
+
+  document.getElementById("europeButton").addEventListener('touchstart',function(){
+    expandLb(3);
+  },false);
+  document.getElementById("europeButton").addEventListener('click',function(){
+    expandLb(3);
+  },false);
+
+  document.getElementById("africaButton").addEventListener('touchstart',function(){
+    expandLb(4);
+  },false);
+  document.getElementById("africaButton").addEventListener('click',function(){
+    expandLb(4);
+  },false);
+
+  document.getElementById("indiaButton").addEventListener('touchstart',function(){
+    expandLb(5);
+  },false);
+  document.getElementById("indiaButton").addEventListener('click',function(){
+    expandLb(5);
+  },false);
+
+  document.getElementById("eastAsiaButton").addEventListener('touchstart',function(){
+    expandLb(6);
+  },false);
+  document.getElementById("eastAsiaButton").addEventListener('click',function(){
+    expandLb(6);
+  },false);
 
   document.getElementById("close_circle").addEventListener('touchstart',closeLb,false);
   document.getElementById("close_circle").addEventListener('click',closeLb,false);
@@ -152,8 +195,9 @@ var closeLb = function(){
   refreshIframe();
 }
 
-var expandLb = function(){
-    ic.src = 'http://146.148.2.249/?rand='+Math.random()+'&city=1';
+var expandLb = function(cityId){
+  console.log('calling expand lib');
+  ic.src = 'http://146.148.2.249/?rand='+Math.random()+'&city='+cityId;
   console.log('epxanding function ');
   setTimeout(function(){
 
@@ -203,7 +247,135 @@ function getPosition(e) {
 
 
   </script>
-  <style>
+
+
+  <script>
+
+      $( document ).ready(function() {
+        
+        loadedFunction();
+        //CALL THE MOST SEE IMAGE AND EXTRACT THE PATTERN
+        //
+        function fetchColorSchema(){
+          console.log('FETCH COLOR SCHEMA')
+          try {
+
+          $.get("http://146.148.2.249:3000/artworks/topPerCity/1/1", function( data ) {
+         
+
+              //src : "http://146.148.2.249/"+data[0].imageURL, 
+              $('#container').append($('<img>', { 
+                src : "http://146.148.2.249/"+data[0].imageURL, 
+               
+                id: "colorImage",
+                alt : "Test Image", 
+                title : "Test Image"
+              }));
+
+              $('#colorImage').load(function() {
+                console.log('color image')
+                 var colorThief = new ColorThief();
+                 var colorRGBArray = colorThief.getColor(document.getElementById("colorImage"));
+                 
+                 var imageHue = rgbToHsl(colorRGBArray[0],colorRGBArray[1],colorRGBArray[2])[0] * 360;
+
+                 var adjustValueForDCLK = (imageHue)// + 450)%360  // dclk color is hue = 90, using 360+90 for staying positive lol
+                 
+                 document.getElementById("invitation").style.webkitFilter = "hue-rotate("+adjustValueForDCLK+"deg)";
+                 document.getElementById("lb_anim").style.webkitFilter = "hue-rotate(-"+adjustValueForDCLK+"deg)";
+                $("#colorImage").remove()
+              });
+          });
+          }catch(err) {
+              document.getElementById("demo").innerHTML = err.message;
+          }
+        }
+
+         function fetchColorSchema2(){
+         try {
+          $.get("http://146.148.2.249:3000/artworks/topPerCity/1/2", function( data ) {
+             
+ 
+              //src : "http://146.148.2.249/"+data[0].imageURL, 
+              $('#container').append($('<img>', { 
+                src : "http://146.148.2.249/"+data[0].imageURL, 
+               
+                id: "colorImage2",
+                alt : "Test Image", 
+                title : "Test Image"
+              }));
+
+              $('#colorImage2').load(function() {
+          
+                 var colorThief = new ColorThief();
+                 var colorRGBArray = colorThief.getColor(document.getElementById("colorImage2"));
+             
+                 var imageHue = rgbToHsl(colorRGBArray[0],colorRGBArray[1],colorRGBArray[2])[0] * 360;
+                
+
+                 var adjustValueForDCLK = (imageHue)// + 450)%360  // dclk color is hue = 90, using 360+90 for staying positive lol
+                
+                 document.getElementById("invitation2").style.webkitFilter = "hue-rotate("+adjustValueForDCLK+"deg)";
+                 document.getElementById("lb_anim2").style.webkitFilter = "hue-rotate(-"+adjustValueForDCLK+"deg)";
+                $("#colorImage2").remove()
+              });
+          });
+        }catch(err) {
+            document.getElementById("demo").innerHTML = err.message;
+        }
+
+        }
+
+        fetchColorSchema2();
+        setInterval( fetchColorSchema2, 50000 );
+        fetchColorSchema();
+        setInterval( fetchColorSchema, 60000 );         
+    });
+
+  </script>
+</head>
+<body>
+ 
+<div id="container" class='main'>
+  <div id="experience">
+      <div class="gradientBrand"> </div>
+      <button id="westCostButton" class="button button--aylen button--round-s button--text-thick">US - West Cost</button>
+      <button id="eastCostButton" class="button button--aylen button--round-s button--text-thick">US - East Cost</button>
+      <button id="europeButton" class="button button--aylen button--round-s button--text-thick">Europe</button>
+      <button id="africaButton" class="button button--aylen button--round-s button--text-thick">Africa</button>
+      <button id="indiaButton" class="button button--aylen button--round-s button--text-thick">India</button>
+      <button id="eastAsiaButton" class="button button--aylen button--round-s button--text-thick">East Asia</button>
+    </ul>
+          <div id='expanded' class='expanded'>
+            <div id='lb_exp' class='border lb_exp'>
+              <iframe id='iframe_content' frameBorder="0" src="http://146.148.2.249/"></iframe>
+            </div>
+            <div id='close_circle' class='close_circle'></div>
+          </div>
+  </div>
+  <div id="opening"> 
+
+      <img src='../img/dls.png' id='logoBig' />
+  </div>
+</div>
+</body>
+</html>
+
+<style>
+
+  .gradientBrand{
+    display: block;
+    width: 100%;
+    height: 5px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#54c1d6+0,1dac4b+100 */
+    background: #54c1d6; /* Old browsers */
+    background: -moz-linear-gradient(left,  #54c1d6 0%, #1dac4b 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #54c1d6 0%,#1dac4b 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #54c1d6 0%,#1dac4b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54c1d6', endColorstr='#1dac4b',GradientType=0 ); /* IE6-9 */
+
+  }
+
   {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
@@ -215,7 +387,7 @@ function getPosition(e) {
   }
 
   body,html{
-    width:100%;
+    width:f%;
     height:100%;
     margin: 0;
     padding: 0;
@@ -229,7 +401,7 @@ function getPosition(e) {
   box-sizing: border-box;         /* Opera/IE 8+ */
   width:100%;
   height:100%;
-  border:1px solid #333;
+  border:0px solid #333;
   position:absolute;
   background:transparent;
 }
@@ -387,12 +559,14 @@ function getPosition(e) {
 
 .expanded{
   position:absolute;
-  width:95%;
-  height:97%;
-  background-color: rgba(0,0,0,0.5);
-  top:1%;
-  left:2%;
+  width:100%;
+  height:100%;
+  background-color: #FFF;
+  top: 0px;
+  left: 0px;
+  margin-right: 30px;
   margin:0;
+  z-index: 10;
   padding:0;
   overflow:hidden;
 
@@ -412,8 +586,8 @@ function getPosition(e) {
   -moz-box-shadow: 0px 20px 25px -10px #333;
   -ms-box-shadow: 0px 20px 25px -10px #333;
   box-shadow: 0px 20px 25px -10px #333;
-  margin-top: 30px;
-  margin-left:30px;
+  margin-top: 1%;
+  margin-left: 1%;
   overflow:hidden;
 
 }
@@ -424,7 +598,8 @@ function getPosition(e) {
   width:128px;
   height:128px;
   position: absolute;
-  right: -30px;
+  right: -25px;
+  top: -25px;
   cursor:pointer;
   position:absolute;
 }
@@ -433,8 +608,8 @@ function getPosition(e) {
   padding:0;
   top:0px;
   left:0px;
-  width:100%;
-  height:100%;
+  width:98%;
+  height:92%;
 }
 
 #Table_01{
@@ -453,7 +628,7 @@ function getPosition(e) {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: #252734;
+  background-color: #fdfdfd;
 }
 #logoBig{
   position: absolute;
@@ -464,144 +639,4 @@ function getPosition(e) {
 .button:first-child{
   margin-top: 5% !important;
 }
-.button{
-  position: relative;
-  height: 13%;
-  width: 60%;
-  margin-top: 1%;
-  margin-bottom: 0%;
-  border-radius: 3px;
-  margin-left: 20%;
-  color: #fff;
-  line-height: 80px;
-  text-align: center;
-  background-color: #0a8490;
-  font-size: 40px;
-  font-family: 'Roboto', sans-serif;
-}
-.button span{
-  background-color: red;
-  position: absolute;
-  top: 20%;
-  left: 10px;
-  width: 50px;
-  height: 50px;
-  display: block;
-  border-radius: 100px;
-}
-
   </style>
-
-  <script>
-
-      $( document ).ready(function() {
-        
-        //CALL THE MOST SEE IMAGE AND EXTRACT THE PATTERN
-        //
-        function fetchColorSchema(){
-          console.log('FETCH COLOR SCHEMA')
-          try {
-
-          $.get("http://146.148.2.249:3000/artworks/topPerCity/1/1", function( data ) {
-         
-
-              //src : "http://146.148.2.249/"+data[0].imageURL, 
-              $('#container').append($('<img>', { 
-                src : "http://146.148.2.249/"+data[0].imageURL, 
-               
-                id: "colorImage",
-                alt : "Test Image", 
-                title : "Test Image"
-              }));
-
-              $('#colorImage').load(function() {
-                console.log('color image')
-                 var colorThief = new ColorThief();
-                 var colorRGBArray = colorThief.getColor(document.getElementById("colorImage"));
-                 
-                 var imageHue = rgbToHsl(colorRGBArray[0],colorRGBArray[1],colorRGBArray[2])[0] * 360;
-
-                 var adjustValueForDCLK = (imageHue)// + 450)%360  // dclk color is hue = 90, using 360+90 for staying positive lol
-                 
-                 document.getElementById("invitation").style.webkitFilter = "hue-rotate("+adjustValueForDCLK+"deg)";
-                 document.getElementById("lb_anim").style.webkitFilter = "hue-rotate(-"+adjustValueForDCLK+"deg)";
-                $("#colorImage").remove()
-              });
-          });
-          }catch(err) {
-              document.getElementById("demo").innerHTML = err.message;
-          }
-        }
-
-         function fetchColorSchema2(){
-         try {
-          $.get("http://146.148.2.249:3000/artworks/topPerCity/1/2", function( data ) {
-             
- 
-              //src : "http://146.148.2.249/"+data[0].imageURL, 
-              $('#container').append($('<img>', { 
-                src : "http://146.148.2.249/"+data[0].imageURL, 
-               
-                id: "colorImage2",
-                alt : "Test Image", 
-                title : "Test Image"
-              }));
-
-              $('#colorImage2').load(function() {
-          
-                 var colorThief = new ColorThief();
-                 var colorRGBArray = colorThief.getColor(document.getElementById("colorImage2"));
-             
-                 var imageHue = rgbToHsl(colorRGBArray[0],colorRGBArray[1],colorRGBArray[2])[0] * 360;
-                
-
-                 var adjustValueForDCLK = (imageHue)// + 450)%360  // dclk color is hue = 90, using 360+90 for staying positive lol
-                
-                 document.getElementById("invitation2").style.webkitFilter = "hue-rotate("+adjustValueForDCLK+"deg)";
-                 document.getElementById("lb_anim2").style.webkitFilter = "hue-rotate(-"+adjustValueForDCLK+"deg)";
-                $("#colorImage2").remove()
-              });
-          });
-        }catch(err) {
-            document.getElementById("demo").innerHTML = err.message;
-        }
-
-        }
-
-        fetchColorSchema2();
-        setInterval( fetchColorSchema2, 5000 );
-        fetchColorSchema();
-        setInterval( fetchColorSchema, 6000 );
-         
-         
-    });
-
-  </script>
-</head>
-<body>
-<div id="container" class='main'>
-  <div id="experience">
-  
-      <div id="westCostButton" class="button">
-        <span id="color1"> </span>
-        US - West Cost
-      </div>
-      <div class="button"> <span id="color2"> </span>US - East Cost</div>
-      <div class="button"> <span id="color3"> </span>Europe</div>
-      <div class="button"> <span id="color4"> </span>Africa</div>
-      <div class="button"> <span id="color5"> </span>India</div>
-      <div class="button"> <span id="color6"> </span> East Asia</div>
-    </ul>
-          <div id='expanded' class='expanded'>
-            <div id='lb_exp' class='border lb_exp'>
-              <iframe id='iframe_content' frameBorder="0" src="http://146.148.2.249/"></iframe>
-            </div>
-            <div id='close_circle' class='close_circle'></div>
-          </div>
-  </div>
-  <div id="opening"> 
-      <img src='../img/dls.png' id='logoBig' />
-  </div>
-</div>
-</body>
-</html>
