@@ -308,15 +308,15 @@ body .gridBox.isLastContentBlock{
 	border-radius: 10px;
 	z-index: 19;
   	position: absolute;
-  	width: 200px;
-  	height: 200px;
+  	width: 120px;
+  	height: 120px;
   	-webkit-perspective: 800px;
           perspective: 800px;
   	overflow: visible;
   	background-color: #333;
    
 
- 	line-height: 200px;
+ 	line-height: 120px;
   	max-width: 40%;
   	-webkit-perspective: 800px;
           perspective: 800px;
@@ -505,7 +505,7 @@ body .gridBox.isLastContentBlock{
 	border-radius: 10px;
 	z-index: 19;
   	position: absolute;
-  	width: 200px;
+  	width: 120px;
   	text-align: center;
   	-webkit-perspective: 800px;
     perspective: 800px;
@@ -524,7 +524,7 @@ body .gridBox.isLastContentBlock{
 	border-radius: 10px;
 	z-index: 19;
   	position: absolute;
-  	width: 200px;
+  	width: 120px;
   	text-align: center;
   	-webkit-perspective: 800px;
     perspective: 800px;
@@ -533,7 +533,7 @@ body .gridBox.isLastContentBlock{
   	color: #eee;
   	padding-top: 5px;
   	padding-bottom: 5px;
-  	font-size : 26px;
+  	font-size : 2px;
   	margin-left: 20px;
 }
 .shareNumber{
@@ -543,7 +543,7 @@ body .gridBox.isLastContentBlock{
 	border-radius: 10px;
 	z-index: 19;
   	position: absolute;
-  	width: 200px;
+  	width: 120px;
   	text-align: center;
   	-webkit-perspective: 800px;
     perspective: 800px;
@@ -562,8 +562,8 @@ body .gridBox.isLastContentBlock{
 	border-radius: 10px;
 	z-index: 19;
   	position: absolute;
-  	width: 200px;
-  	height: 200px;
+  	width: 120px;
+  	height: 120px;
   	-webkit-perspective: 800px;
           perspective: 800px;
   	overflow: visible;
@@ -573,8 +573,8 @@ body .gridBox.isLastContentBlock{
 
 .qrCode img{
 	margin: 10px;
-	width: 180px;
-	height: 180px;
+	width: 100px;
+	height: 100px;
 
 }
 
@@ -587,8 +587,8 @@ body .gridBox.isLastContentBlock{
 border-radius: 10px;
 	z-index: 19;
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 120px;
+  height: 120px;
   -webkit-perspective: 800px;
           perspective: 800px;
   overflow: visible;
