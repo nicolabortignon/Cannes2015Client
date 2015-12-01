@@ -505,7 +505,7 @@ body .gridBox.isLastContentBlock{
   	-webkit-perspective: 800px;
     perspective: 800px;
   	overflow: visible;
-  	background-color: #333;
+  	background-color: #7fbdb5;
   	color: #eee;
   	padding-top: 5px;
   	padding-bottom: 5px;
@@ -524,7 +524,7 @@ body .gridBox.isLastContentBlock{
   	-webkit-perspective: 800px;
     perspective: 800px;
   	overflow: visible;
-  	background-color: #333;
+  	background-color: #7fbdb5;
   	color: #eee;
   	padding-top: 5px;
   	padding-bottom: 5px;
@@ -543,7 +543,7 @@ body .gridBox.isLastContentBlock{
   	-webkit-perspective: 800px;
     perspective: 800px;
   	overflow: visible;
-  	background-color: #333;
+  	background-color: #7fbdb5;
   	color: #eee;
   	padding-top: 5px;
   	padding-bottom: 5px;
@@ -562,7 +562,7 @@ body .gridBox.isLastContentBlock{
   	-webkit-perspective: 800px;
           perspective: 800px;
   	overflow: visible;
-  	background-color: #333;
+  	background-color: #7fbdb5;
   	margin-left: 20px;
 }
 
@@ -608,7 +608,7 @@ border-radius: 10px;
 
 .icon-cube::before {
   z-index: 23;
-  background-color: #333;
+  background-color: #7fbdb5;
 }
 
 .icon-cube::after {
@@ -657,7 +657,7 @@ border-radius: 10px;
 }
 
 .icon-cube.googleplus::after {
-  background-color: #cc1e1e;
+  background-color: #3fb9a1;
 }
 
 /* github */
