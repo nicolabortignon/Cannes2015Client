@@ -80,66 +80,7 @@ var launchIntoFullscreen = function( element) {
     $('#experience').show();
 }
 window.load = function() {
-  console.log('loaded');
-  ic = document.getElementById('iframe_content');
-  lb_anim = document.getElementById("lb_anim");
-  invitation = document.getElementById("invitation");
-  expanded = document.getElementById("expanded");
-  lb_exp = document.getElementById("lb_exp");
-  close_btn = document.getElementById("close_circle");
-  mpu_space = document.getElementById("mpu_space");
-  invitationX = "1490";
-  invitationY = "13";
   
-  $('#opening').show();
-  $('#experience').hide();
-  document.getElementById("opening").addEventListener('click',goFull, false);
-
-  // Attach event listener to different locations. Passing the location as parameter
-  document.getElementById("westCostButton").addEventListener('touchstart',function(){
-    expandLb(1);
-  },false);
-  document.getElementById("westCostButton").addEventListener('click',function(){
-    expandLb(1);
-  },false);
-
-  document.getElementById("eastCostButton").addEventListener('touchstart',function(){
-    expandLb(2);
-  },false);
-  document.getElementById("eastCostButton").addEventListener('click',function(){
-    expandLb(2);
-  },false);
-
-  document.getElementById("europeButton").addEventListener('touchstart',function(){
-    expandLb(3);
-  },false);
-  document.getElementById("europeButton").addEventListener('click',function(){
-    expandLb(3);
-  },false);
-
-  document.getElementById("africaButton").addEventListener('touchstart',function(){
-    expandLb(4);
-  },false);
-  document.getElementById("africaButton").addEventListener('click',function(){
-    expandLb(4);
-  },false);
-
-  document.getElementById("indiaButton").addEventListener('touchstart',function(){
-    expandLb(5);
-  },false);
-  document.getElementById("indiaButton").addEventListener('click',function(){
-    expandLb(5);
-  },false);
-
-  document.getElementById("eastAsiaButton").addEventListener('touchstart',function(){
-    expandLb(6);
-  },false);
-  document.getElementById("eastAsiaButton").addEventListener('click',function(){
-    expandLb(6);
-  },false);
-
-  document.getElementById("close_circle").addEventListener('touchstart',closeLb,false);
-  document.getElementById("close_circle").addEventListener('click',closeLb,false);
 };
 
 var goFull = function(){
@@ -331,6 +272,72 @@ function getPosition(e) {
         fetchColorSchema();
         setInterval( fetchColorSchema, 60000 );  
         */       
+       
+
+
+
+
+
+       console.log('loaded');
+  ic = document.getElementById('iframe_content');
+  lb_anim = document.getElementById("lb_anim");
+  invitation = document.getElementById("invitation");
+  expanded = document.getElementById("expanded");
+  lb_exp = document.getElementById("lb_exp");
+  close_btn = document.getElementById("close_circle");
+  mpu_space = document.getElementById("mpu_space");
+  invitationX = "1490";
+  invitationY = "13";
+  
+  $('#opening').show();
+  $('#experience').hide();
+  document.getElementById("opening").addEventListener('click',goFull, false);
+
+  // Attach event listener to different locations. Passing the location as parameter
+  document.getElementById("westCostButton").addEventListener('touchstart',function(){
+    expandLb(1);
+  },false);
+  document.getElementById("westCostButton").addEventListener('click',function(){
+    expandLb(1);
+  },false);
+
+  document.getElementById("eastCostButton").addEventListener('touchstart',function(){
+    expandLb(2);
+  },false);
+  document.getElementById("eastCostButton").addEventListener('click',function(){
+    expandLb(2);
+  },false);
+
+  document.getElementById("europeButton").addEventListener('touchstart',function(){
+    expandLb(3);
+  },false);
+  document.getElementById("europeButton").addEventListener('click',function(){
+    expandLb(3);
+  },false);
+
+  document.getElementById("africaButton").addEventListener('touchstart',function(){
+    expandLb(4);
+  },false);
+  document.getElementById("africaButton").addEventListener('click',function(){
+    expandLb(4);
+  },false);
+
+  document.getElementById("indiaButton").addEventListener('touchstart',function(){
+    expandLb(5);
+  },false);
+  document.getElementById("indiaButton").addEventListener('click',function(){
+    expandLb(5);
+  },false);
+
+  document.getElementById("eastAsiaButton").addEventListener('touchstart',function(){
+    expandLb(6);
+  },false);
+  document.getElementById("eastAsiaButton").addEventListener('click',function(){
+    expandLb(6);
+  },false);
+
+  document.getElementById("close_circle").addEventListener('touchstart',closeLb,false);
+  document.getElementById("close_circle").addEventListener('click',closeLb,false);
     });
 
   </script>
