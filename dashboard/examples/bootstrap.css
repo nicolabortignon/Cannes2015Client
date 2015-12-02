@@ -3750,9 +3750,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-width: 1px 0 0;
 }
 .navbar-brandDashboard1{
-  height: 110px !important;
+  height: 100px !important;
   padding-left: 50px !important;
-  line-height: 110px !important;
+  line-height: 120px !important;
 }
 .navbar-brand {
   float: left;
