@@ -16,6 +16,10 @@ font-family: 'Roboto', sans-serif;
   margin: 0;
   margin-top: 100px;
 }
+
+.bodyBackgroundDashboard1{
+  background-image: url(../../img/backgroundDashboard1.jpg);
+}
 article,
 aside,
 details,
@@ -3741,10 +3745,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand {
   float: left;
-  height: 50px;
+  height: 80px;
   padding: 15px 15px;
   font-size: 18px;
-  line-height: 20px;
+  line-height: 50px;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
