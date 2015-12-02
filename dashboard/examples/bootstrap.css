@@ -17,6 +17,11 @@ font-family: 'Roboto', sans-serif;
   margin-top: 100px;
 }
 
+.bodyBackgroundDashboard1 {
+  margin-left: 20px;
+  margin-top: 10px !important;
+}
+
 .bodyBackgroundDashboard1{
   background-image: url(../../img/backgroundDashboard1.jpg);
 }
